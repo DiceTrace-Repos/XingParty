@@ -10,7 +10,12 @@ import {
   Text,
   createTableColumn
 } from '@fluentui/react-components'
-import { ArrowClockwise24Regular, Play24Regular, Stop24Regular } from '@fluentui/react-icons'
+import {
+  ArrowClockwise24Regular,
+  DocumentArrowUp24Regular,
+  Play24Regular,
+  Stop24Regular
+} from '@fluentui/react-icons'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import type { BootstrapState, RecentDiceEvent } from '../../../../shared/types'
@@ -22,6 +27,7 @@ interface GameStatsPanelProps {
   recognitionError?: string
   onRefresh: () => void
   onStartRecognition: () => void
+  onUploadVideo: () => void
   onStop: () => void
 }
 
@@ -31,6 +37,7 @@ function GameStatsPanel({
   recognitionError,
   onRefresh,
   onStartRecognition,
+  onUploadVideo,
   onStop
 }: GameStatsPanelProps): React.JSX.Element {
   const { t } = useTranslation()
@@ -89,9 +96,14 @@ function GameStatsPanel({
                 {t('actions.stop')}
               </Button>
             ) : (
-              <Button appearance="primary" icon={<Play24Regular />} onClick={onStartRecognition}>
-                {t('actions.startRecognition')}
-              </Button>
+              <>
+                <Button appearance="primary" icon={<Play24Regular />} onClick={onStartRecognition}>
+                  {t('actions.startRecognition')}
+                </Button>
+                <Button icon={<DocumentArrowUp24Regular />} onClick={onUploadVideo}>
+                  {t('actions.uploadVideo')}
+                </Button>
+              </>
             )}
           </div>
         </div>

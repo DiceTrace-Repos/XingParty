@@ -26,6 +26,9 @@ export interface XingPartyAPI {
   setActiveGame: (key: string) => Promise<BootstrapState>
   startMockRecognition: (key: string) => Promise<BootstrapState>
   prepareRecognitionCapture: (key: string) => Promise<RecognitionCaptureSession>
+  prepareVideoRecognition: (key: string) => Promise<RecognitionCaptureSession>
+  getVideoFilePath: (file: File) => string
+  startVideoFileRecognition: (key: string, filePath: string) => Promise<BootstrapState>
   checkRecognitionTarget: () => Promise<RecognitionTargetHealth>
   submitRecognitionFrame: (payload: RecognitionFramePayload) => Promise<BootstrapState>
   stopRecognition: () => Promise<BootstrapState>

@@ -148,6 +148,36 @@ export interface RecognitionStatus {
   activeGameKey?: string
 }
 
+export interface RecognitionConfidence {
+  roundInfo: number
+  diceValues: number
+  characterCode: number
+  players: [number, number]
+}
+
+export interface LuckyPartyPlayerInfo {
+  headCount: number | null
+  name: string | null
+  cardDiceValues: Array<number | null>
+  cardPointValues: Array<number | null>
+  confidence: {
+    headCount: number
+    name: number
+    cardDiceValues: number
+    cardPointValues: number
+  }
+}
+
+export interface LuckyPartyRecognitionResult {
+  schemaVersion: 1
+  capturedAt: string
+  roundInfo: Array<number | null>
+  diceValues: Array<number | null>
+  characterCode: string | null
+  players: [LuckyPartyPlayerInfo, LuckyPartyPlayerInfo]
+  confidence: RecognitionConfidence
+}
+
 export interface RecognitionTargetHealth {
   alive: boolean
   state: BootstrapState

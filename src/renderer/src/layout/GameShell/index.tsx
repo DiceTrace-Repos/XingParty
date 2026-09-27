@@ -20,7 +20,11 @@ function GameShell(): React.JSX.Element {
   const [recognitionError, setRecognitionError] = useState<string>()
   const [logs, setLogs] = useState<AppLogEntry[]>([])
   const captureStreamRef = useRef<MediaStream | null>(null)
+  const captureVideoRef = useRef<HTMLVideoElement | null>(null)
+  const videoObjectUrlRef = useRef<string | null>(null)
   const captureTimerRef = useRef<number | null>(null)
+  const captureInFlightRef = useRef(false)
+  const videoInputRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -61,6 +65,16 @@ function GameShell(): React.JSX.Element {
 
     captureStreamRef.current?.getTracks().forEach((track) => track.stop())
     captureStreamRef.current = null
+    if (captureVideoRef.current) {
+      captureVideoRef.current.pause()
+      captureVideoRef.current.src = ''
+      captureVideoRef.current = null
+    }
+    if (videoObjectUrlRef.current) {
+      URL.revokeObjectURL(videoObjectUrlRef.current)
+      videoObjectUrlRef.current = null
+    }
+    captureInFlightRef.current = false
   }, [])
 
   useEffect(() => {
@@ -90,6 +104,10 @@ function GameShell(): React.JSX.Element {
     setRecognitionError(undefined)
 
     try {
+      if (typeof window.api.prepareVideoRecognition !== 'function') {
+        throw new Error('视频识别接口尚未加载，请完全退出并重新启动 XingParty')
+      }
+
       const captureGameKey = activeGame.key
       const { state: nextState, target } =
         await window.api.prepareRecognitionCapture(captureGameKey)
@@ -120,34 +138,47 @@ function GameShell(): React.JSX.Element {
       video.muted = true
       await video.play()
 
-      captureTimerRef.current = window.setInterval(async () => {
-        const targetHealth = await window.api.checkRecognitionTarget()
+      captureTimerRef.current = window.setInterval(
+        async () => {
+          if (captureInFlightRef.current) {
+            return
+          }
 
-        if (!targetHealth.alive) {
-          stopLocalCapture()
-          setState(targetHealth.state)
-          setLogs(await window.api.getAppLogs())
-          return
-        }
+          captureInFlightRef.current = true
 
-        if (!context || video.videoWidth === 0 || video.videoHeight === 0) {
-          return
-        }
+          try {
+            const targetHealth = await window.api.checkRecognitionTarget()
 
-        canvas.width = video.videoWidth
-        canvas.height = video.videoHeight
-        context.drawImage(video, 0, 0, canvas.width, canvas.height)
+            if (!targetHealth.alive) {
+              stopLocalCapture()
+              setState(targetHealth.state)
+              setLogs(await window.api.getAppLogs())
+              return
+            }
 
-        const latestState = await window.api.submitRecognitionFrame({
-          gameKey: captureGameKey,
-          capturedAt: new Date().toISOString(),
-          imageDataUrl: canvas.toDataURL('image/jpeg', 0.72),
-          width: canvas.width,
-          height: canvas.height
-        })
+            if (!context || video.videoWidth === 0 || video.videoHeight === 0) {
+              return
+            }
 
-        setState(latestState)
-      }, target.profile.captureIntervalMs)
+            canvas.width = video.videoWidth
+            canvas.height = video.videoHeight
+            context.drawImage(video, 0, 0, canvas.width, canvas.height)
+
+            const latestState = await window.api.submitRecognitionFrame({
+              gameKey: captureGameKey,
+              capturedAt: new Date().toISOString(),
+              imageDataUrl: canvas.toDataURL('image/jpeg', 0.72),
+              width: canvas.width,
+              height: canvas.height
+            })
+
+            setState(latestState)
+          } finally {
+            captureInFlightRef.current = false
+          }
+        },
+        Math.min(1500, Math.max(1000, target.profile.captureIntervalMs))
+      )
     } catch (error) {
       stopLocalCapture()
       setState(await window.api.stopRecognition())
@@ -163,6 +194,36 @@ function GameShell(): React.JSX.Element {
     setRecognitionError(undefined)
     setState(await window.api.stopRecognition())
     setLogs(await window.api.getAppLogs())
+  }
+
+  const uploadVideo = async (file: File): Promise<void> => {
+    if (!activeGame) {
+      return
+    }
+
+    stopLocalCapture()
+    setRecognitionError(undefined)
+
+    try {
+      const captureGameKey = activeGame.key
+      const filePath = window.api.getVideoFilePath(file)
+      if (!filePath) {
+        throw new Error('无法读取视频文件路径，请重新选择视频')
+      }
+      setState(await window.api.startVideoFileRecognition(captureGameKey, filePath))
+      setLogs(await window.api.getAppLogs())
+    } catch (error) {
+      stopLocalCapture()
+      setState(await window.api.stopRecognition())
+      setLogs(await window.api.getAppLogs())
+      setRecognitionError(
+        error instanceof Error ? error.message : t('errors.recognitionStartFailed')
+      )
+    }
+  }
+
+  const selectVideo = (): void => {
+    videoInputRef.current?.click()
   }
 
   const showSettings = (): void => {
@@ -192,6 +253,19 @@ function GameShell(): React.JSX.Element {
 
   return (
     <div className="appShell">
+      <input
+        ref={videoInputRef}
+        type="file"
+        accept=".mp4,video/mp4,video/*"
+        hidden
+        onChange={(event) => {
+          const [file] = Array.from(event.target.files ?? [])
+          event.target.value = ''
+          if (file) {
+            void uploadVideo(file)
+          }
+        }}
+      />
       <aside className="gameRail" aria-label={t('nav.gameCatalog')}>
         {activeGame ? (
           <Tooltip content={gameName} relationship="label">
@@ -258,6 +332,7 @@ function GameShell(): React.JSX.Element {
               recognitionError={recognitionError}
               onRefresh={refresh}
               onStartRecognition={startRecognition}
+              onUploadVideo={selectVideo}
               onStop={stop}
             />
           </section>

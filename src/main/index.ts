@@ -9,6 +9,7 @@ import { RecognitionWorker } from './recognition-worker'
 import { appLogger } from './app-logger'
 import { createWindowMatcher } from './window-matcher'
 import { getGameAdapter } from '../games/registry'
+import { VideoFrameExtractor } from './video-frame-extractor'
 import type {
   BootstrapState,
   RecognitionCaptureTarget,
@@ -18,6 +19,7 @@ import type {
 
 let localStore: LocalStore
 let recognitionWorker: RecognitionWorker
+const videoFrameExtractor = new VideoFrameExtractor()
 
 function createWindow(): void {
   // Create the browser window.
@@ -151,6 +153,34 @@ app.whenReady().then(() => {
     }
   })
 
+  ipcMain.handle('recognition:prepare-video', (_, key: string) => {
+    const target = prepareVideoCaptureTarget(key)
+    recognitionWorker.startCapture(target)
+    appLogger.info('recognition', '视频识别会话已启动', { gameKey: key })
+    return {
+      state: localStore.getBootstrapState(recognitionWorker.getStatus().running),
+      target
+    }
+  })
+
+  ipcMain.handle('recognition:start-video-file', (_, key: string, filePath: string) => {
+    const target = prepareVideoCaptureTarget(key)
+    recognitionWorker.startCapture(target)
+    videoFrameExtractor.start(
+      filePath,
+      target.profile.captureIntervalMs,
+      (jpeg) => {
+        recognitionWorker.submitVideoFrame(key, jpeg)
+      },
+      () => {
+        recognitionWorker.stop()
+        appLogger.info('recognition', 'FFmpeg 视频已处理完成', { gameKey: key, filePath })
+      }
+    )
+    appLogger.info('recognition', 'FFmpeg 视频识别已启动', { gameKey: key, filePath })
+    return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+  })
+
   ipcMain.handle('recognition:submit-frame', (_, payload: RecognitionFramePayload) => {
     recognitionWorker.submitFrame(payload)
     return localStore.getBootstrapState(recognitionWorker.getStatus().running)
@@ -163,6 +193,7 @@ app.whenReady().then(() => {
   ipcMain.handle('recognition:stop', () => {
     appLogger.info('recognition', '停止识别')
     recognitionWorker.stop()
+    videoFrameExtractor.stop()
     return localStore.getBootstrapState(false)
   })
 
@@ -294,4 +325,26 @@ async function checkRecognitionTarget(): Promise<RecognitionTargetHealth> {
 
 function getBootstrapState(): BootstrapState {
   return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+}
+
+function prepareVideoCaptureTarget(gameKey: string): RecognitionCaptureTarget {
+  const profile = getGameAdapter(gameKey)?.profile
+
+  if (!profile) {
+    throw new Error(`未配置游戏识别参数：${gameKey}`)
+  }
+
+  return {
+    gameKey,
+    sourceId: 'uploaded-video',
+    sourceName: 'uploaded-video',
+    window: {
+      hwnd: 'uploaded-video',
+      pid: 0,
+      title: 'uploaded-video',
+      exePath: 'uploaded-video',
+      bounds: { x: 0, y: 0, width: 0, height: 0 }
+    },
+    profile
+  }
 }

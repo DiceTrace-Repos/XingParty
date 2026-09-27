@@ -20,6 +20,7 @@
   "actions": {
     "startMock": "开始模拟识别",
     "startRecognition": "开始识别",
+    "uploadVideo": "上传视频",
     "stop": "停止",
     "refresh": "刷新游戏列表",
     "clearLogs": "清空日志",

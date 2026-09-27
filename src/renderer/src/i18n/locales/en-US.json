@@ -20,6 +20,7 @@
   "actions": {
     "startMock": "Start mock recognition",
     "startRecognition": "Start recognition",
+    "uploadVideo": "Upload video",
     "stop": "Stop",
     "refresh": "Refresh games",
     "clearLogs": "Clear logs",

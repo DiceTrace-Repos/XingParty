@@ -1,4 +1,4 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer, webUtils } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import type { RecognitionFramePayload } from '../shared/types'
 
@@ -13,6 +13,10 @@ const api = {
   startMockRecognition: (key: string) => ipcRenderer.invoke('recognition:start-mock', key),
   prepareRecognitionCapture: (key: string) =>
     ipcRenderer.invoke('recognition:prepare-capture', key),
+  prepareVideoRecognition: (key: string) => ipcRenderer.invoke('recognition:prepare-video', key),
+  getVideoFilePath: (file: File) => webUtils.getPathForFile(file),
+  startVideoFileRecognition: (key: string, filePath: string) =>
+    ipcRenderer.invoke('recognition:start-video-file', key, filePath),
   checkRecognitionTarget: () => ipcRenderer.invoke('recognition:check-target'),
   submitRecognitionFrame: (payload: RecognitionFramePayload) =>
     ipcRenderer.invoke('recognition:submit-frame', payload),

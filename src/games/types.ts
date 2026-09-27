@@ -3,7 +3,8 @@ import type {
   RecognitionProfile,
   SceneType,
   PhaseType,
-  DiceSide
+  DiceSide,
+  LuckyPartyRecognitionResult
 } from '../shared/types'
 
 export interface GameRecognitionResult {
@@ -12,6 +13,7 @@ export interface GameRecognitionResult {
   side?: DiceSide
   confidence: number
   value?: number
+  structured?: LuckyPartyRecognitionResult
 }
 
 export interface GameAdapter {
