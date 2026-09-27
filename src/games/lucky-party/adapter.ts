@@ -30,9 +30,6 @@ export const luckyPartyAdapter: GameAdapter = {
     }
   },
   recognize(frame) {
-    // The ONNX model is intentionally injected in a later stage. Returning a
-    // typed empty result here keeps the runtime contract stable while model
-    // files are trained and shipped under resources/models/lucky-party.
     const result: LuckyPartyRecognitionResult = {
       schemaVersion: 1,
       capturedAt: frame.capturedAt,
