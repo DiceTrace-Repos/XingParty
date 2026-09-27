@@ -1,0 +1,83 @@
+{
+  "app": {
+    "title": "XingParty",
+    "subtitle": "Multi-game dice recognition client"
+  },
+  "games": {
+    "luckyParty": {
+      "name": "Lucky Party"
+    },
+    "unsupported": "Unsupported game"
+  },
+  "nav": {
+    "gameCatalog": "Games"
+  },
+  "status": {
+    "ready": "Ready",
+    "running": "Recognition running",
+    "stopped": "Stopped"
+  },
+  "actions": {
+    "startMock": "Start mock recognition",
+    "startRecognition": "Start recognition",
+    "stop": "Stop",
+    "refresh": "Refresh games",
+    "clearLogs": "Clear logs",
+    "exportLogs": "Export JSON"
+  },
+  "errors": {
+    "recognitionStartFailed": "Failed to start recognition"
+  },
+  "settings": {
+    "title": "Software Settings",
+    "subtitle": "Client-wide configuration",
+    "placeholderTitle": "Software settings placeholder",
+    "placeholderBody": "Language, startup behavior, data storage, update policy, and privacy options will be added later. This version keeps the entry point and page structure ready."
+  },
+  "gamePanel": {
+    "info": "Info",
+    "settings": "Settings"
+  },
+  "logs": {
+    "title": "Runtime Logs",
+    "subtitle": "Shows current client runtime logs for window matching, capture, and recognition state",
+    "empty": "No runtime logs yet"
+  },
+  "stats": {
+    "title": "Game Info",
+    "clientId": "Client ID",
+    "gameId": "Game ID",
+    "gameKey": "Game Key",
+    "recognitionState": "Recognition",
+    "recentEvents": "Recent Events",
+    "emptyEvents": "No recognition events yet",
+    "scene": "Scene",
+    "phase": "Phase",
+    "side": "Side",
+    "finalValue": "Final Value",
+    "confidence": "Confidence",
+    "capturedAt": "Captured At",
+    "stepCount": "Steps"
+  },
+  "config": {
+    "title": "Current Game Config",
+    "placeholderTitle": "Per-game config is not available in v1",
+    "placeholderBody": "Window selection, capture regions, dice regions, recognition interval, and debug snapshots will be added later. This version keeps the layout and API surface ready."
+  },
+  "scene": {
+    "map": "Map",
+    "battle": "Battle",
+    "unknown": "Unknown"
+  },
+  "phase": {
+    "move": "Move",
+    "attack": "Attack",
+    "defense": "Defense",
+    "unknown": "Unknown"
+  },
+  "side": {
+    "self": "Self",
+    "enemy": "Enemy",
+    "none": "-"
+  }
+}

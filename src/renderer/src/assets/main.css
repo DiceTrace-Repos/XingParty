@@ -1,0 +1,35 @@
+@import './base.css';
+
+:root {
+  --app-bg: #f3f3f3;
+  --surface: #fbfbfb;
+  --surface-soft: #f7f7f7;
+  --border: #e5e5e5;
+  --border-strong: #d8d8d8;
+  --text: #1b1b1b;
+  --muted: #616161;
+  --accent: #0067c0;
+  --accent-soft: #e5f1fb;
+}
+
+body {
+  overflow: hidden;
+  user-select: none;
+  background: var(--app-bg);
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.mutedText {
+  color: var(--muted);
+}
+
+.monoText {
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

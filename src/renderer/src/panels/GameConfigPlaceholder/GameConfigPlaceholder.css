@@ -1,0 +1,41 @@
+.configPanel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  align-content: start;
+  min-width: 0;
+  min-height: 0;
+  padding: 24px 0 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.configPanel .panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+  padding-bottom: 12px;
+}
+
+.configPanel .panelTitleWithIcon {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.placeholderBlock {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 160px;
+  padding: 8px 0 2px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 980px) {
+  .configPanel {
+    min-height: 360px;
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "app": {
+    "title": "XingParty",
+    "subtitle": "多游戏骰子识别客户端"
+  },
+  "games": {
+    "luckyParty": {
+      "name": "吉星派对"
+    },
+    "unsupported": "暂不支持的游戏"
+  },
+  "nav": {
+    "gameCatalog": "游戏列表"
+  },
+  "status": {
+    "ready": "就绪",
+    "running": "识别中",
+    "stopped": "已停止"
+  },
+  "actions": {
+    "startMock": "开始模拟识别",
+    "startRecognition": "开始识别",
+    "stop": "停止",
+    "refresh": "刷新游戏列表",
+    "clearLogs": "清空日志",
+    "exportLogs": "导出 JSON"
+  },
+  "errors": {
+    "recognitionStartFailed": "识别启动失败"
+  },
+  "settings": {
+    "title": "软件设置",
+    "subtitle": "客户端全局配置",
+    "placeholderTitle": "软件配置占位页",
+    "placeholderBody": "语言、启动行为、数据存储、更新策略和隐私选项会在后续版本接入；当前版本只保留入口和页面结构。"
+  },
+  "gamePanel": {
+    "info": "信息",
+    "settings": "设置"
+  },
+  "logs": {
+    "title": "运行日志",
+    "subtitle": "显示客户端当前运行过程中的窗口匹配、截图捕获和识别状态日志",
+    "empty": "暂无运行日志"
+  },
+  "stats": {
+    "title": "游戏信息",
+    "clientId": "客户端 ID",
+    "gameId": "游戏 ID",
+    "gameKey": "游戏 Key",
+    "recognitionState": "识别状态",
+    "recentEvents": "最近事件",
+    "emptyEvents": "还没有识别事件",
+    "scene": "场景",
+    "phase": "阶段",
+    "side": "对象",
+    "finalValue": "最终点数",
+    "confidence": "置信度",
+    "capturedAt": "采集时间",
+    "stepCount": "阶梯数"
+  },
+  "config": {
+    "title": "当前游戏配置",
+    "placeholderTitle": "第一版暂不开放独立配置",
+    "placeholderBody": "窗口选择、截图区域、骰子区域、识别间隔和调试截图会在后续版本接入；当前版本只保留稳定布局和接口位置。"
+  },
+  "scene": {
+    "map": "地图",
+    "battle": "战斗",
+    "unknown": "未知"
+  },
+  "phase": {
+    "move": "移动",
+    "attack": "攻击",
+    "defense": "防御",
+    "unknown": "未知"
+  },
+  "side": {
+    "self": "我方",
+    "enemy": "敌方",
+    "none": "-"
+  }
+}
