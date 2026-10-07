@@ -8,6 +8,7 @@ import type {
   DiceValueStep,
   PlaySession,
   RecentDiceEvent,
+  RecognitionRecord,
   Round,
   StoredGame
 } from '../shared/types'
@@ -19,7 +20,8 @@ const FILES = {
   sessions: 'sessions',
   rounds: 'rounds',
   events: 'dice_events',
-  steps: 'dice_value_steps'
+  steps: 'dice_value_steps',
+  recognitionResults: 'recognition_results'
 }
 
 export class LocalStore {
@@ -45,6 +47,7 @@ export class LocalStore {
       games,
       activeGame,
       recentEvents: activeGame ? this.getRecentEvents(activeGame.key, 12) : [],
+      latestRecognition: activeGame ? this.getLatestRecognition(activeGame.key) : undefined,
       recognitionRunning
     }
   }
@@ -83,14 +86,18 @@ export class LocalStore {
     this.appendEvent(event, this.createMockSteps(event.id, event.confidence))
   }
 
-  appendRecognitionEvent(gameKey: string, result: GameRecognitionResult): void {
+  appendRecognitionEvent(
+    gameKey: string,
+    result: GameRecognitionResult,
+    rawFrame?: RecognitionRecord['rawFrame']
+  ): void {
     const game = this.getGames().find((item) => item.key === gameKey)
 
     if (!game) {
       return
     }
 
-    const now = new Date().toISOString()
+    const now = result.structured?.capturedAt ?? new Date().toISOString()
     const session = this.ensureSession(game.id, game.key, now)
     const round = this.ensureRound(game.id, game.key, session.id, now)
     const event: DiceEvent = {
@@ -108,6 +115,27 @@ export class LocalStore {
     }
     const steps = result.value === undefined ? [] : this.createValueSteps(event.id, result)
     this.appendEvent(event, steps)
+
+    if (result.structured) {
+      const records = this.storage.readCollection<RecognitionRecord>(FILES.recognitionResults, [])
+      const record: RecognitionRecord = {
+        id: randomUUID(),
+        gameId: game.id,
+        gameKey: game.key,
+        capturedAt: now,
+        scene: result.scene,
+        phase: result.phase,
+        side: result.side,
+        confidence: result.confidence,
+        value: result.value,
+        structured: result.structured,
+        rawFrame
+      }
+      this.storage.writeCollection<RecognitionRecord>(
+        FILES.recognitionResults,
+        [...records, record].slice(-500)
+      )
+    }
   }
 
   private appendEvent(event: DiceEvent, steps: DiceValueStep[]): void {
@@ -175,6 +203,13 @@ export class LocalStore {
         stepCount: eventSteps.length
       }
     })
+  }
+
+  private getLatestRecognition(gameKey: string): RecognitionRecord | undefined {
+    return this.storage
+      .readCollection<RecognitionRecord>(FILES.recognitionResults, [])
+      .filter((record) => record.gameKey === gameKey)
+      .sort((left, right) => right.capturedAt.localeCompare(left.capturedAt))[0]
   }
 
   private ensureSession(gameId: string, gameKey: string, now: string): PlaySession {

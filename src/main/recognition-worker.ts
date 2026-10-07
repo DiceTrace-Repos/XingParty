@@ -5,6 +5,8 @@ import { join } from 'path'
 import type { LocalStore } from './local-store'
 import { getGameAdapter } from '../games/registry'
 import { appLogger } from './app-logger'
+import { loadMockRecognitionFixture } from './mock-recognition-source'
+import { parseRawModelFrame } from '../games/lucky-party/raw-model-output-parser'
 import type {
   RecognitionCaptureTarget,
   RecognitionFramePayload,
@@ -22,14 +24,32 @@ export class RecognitionWorker {
 
   startMock(gameKey: string): RecognitionStatus {
     this.stop()
+    const fixture = loadMockRecognitionFixture()
     this.activeGameKey = gameKey
-    this.store.appendMockRecognitionEvent(gameKey)
+    let frameIndex = 0
 
-    this.timer = setInterval(() => {
-      if (this.activeGameKey) {
-        this.store.appendMockRecognitionEvent(this.activeGameKey)
+    const submitNextFrame = (): void => {
+      const frame = fixture.frames[frameIndex]
+      if (!frame || this.activeGameKey !== gameKey) {
+        return
       }
-    }, 3500)
+
+      const result = parseRawModelFrame(frame, new Date().toISOString())
+      this.store.appendRecognitionEvent(gameKey, result, frame)
+      appLogger.info('recognition', `已处理模拟模型输出帧 ${frame.frameId}`, frame.predictions)
+
+      frameIndex = (frameIndex + 1) % fixture.frames.length
+      if (frameIndex === 0) {
+        appLogger.info('recognition', '模拟模型输出已播放完毕，重新从第一帧开始', {
+          gameKey,
+          frameCount: fixture.frames.length
+        })
+      }
+    }
+
+    submitNextFrame()
+
+    this.timer = setInterval(submitNextFrame, 1500)
 
     return this.getStatus()
   }

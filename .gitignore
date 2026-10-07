@@ -7,3 +7,6 @@ out
 build
 .pnpm-store
 resources/ffmpeg
+.env
+.env.local
+.env.*.local

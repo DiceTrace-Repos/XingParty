@@ -104,16 +104,20 @@ function GameShell(): React.JSX.Element {
     setRecognitionError(undefined)
 
     try {
-      if (typeof window.api.prepareVideoRecognition !== 'function') {
-        throw new Error('视频识别接口尚未加载，请完全退出并重新启动 XingParty')
+      if (typeof window.api.startRecognition !== 'function') {
+        throw new Error('识别接口尚未加载，请完全退出并重新启动 XingParty')
       }
 
       const captureGameKey = activeGame.key
-      const { state: nextState, target } =
-        await window.api.prepareRecognitionCapture(captureGameKey)
-      setState(nextState)
+      const session = await window.api.startRecognition(captureGameKey)
+      setState(session.state)
       setLogs(await window.api.getAppLogs())
 
+      if (session.mode === 'mock') {
+        return
+      }
+
+      const { target } = session
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: false,
         video: {

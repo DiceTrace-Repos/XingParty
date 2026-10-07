@@ -12,6 +12,17 @@ export interface RecognitionCaptureSession {
   target: RecognitionCaptureTarget
 }
 
+export type RecognitionStartSession =
+  | {
+      mode: 'mock'
+      state: BootstrapState
+    }
+  | {
+      mode: 'capture'
+      state: BootstrapState
+      target: RecognitionCaptureTarget
+    }
+
 export interface ExportLogsResult {
   canceled: boolean
   filePath?: string
@@ -24,8 +35,7 @@ export interface XingPartyAPI {
   exportAppLogs: () => Promise<ExportLogsResult>
   refreshGameCatalog: () => Promise<BootstrapState>
   setActiveGame: (key: string) => Promise<BootstrapState>
-  startMockRecognition: (key: string) => Promise<BootstrapState>
-  prepareRecognitionCapture: (key: string) => Promise<RecognitionCaptureSession>
+  startRecognition: (key: string) => Promise<RecognitionStartSession>
   prepareVideoRecognition: (key: string) => Promise<RecognitionCaptureSession>
   getVideoFilePath: (file: File) => string
   startVideoFileRecognition: (key: string, filePath: string) => Promise<BootstrapState>

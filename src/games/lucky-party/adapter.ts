@@ -3,11 +3,14 @@ import type { LuckyPartyRecognitionResult } from '../../shared/types'
 
 const emptyPlayer = (): LuckyPartyRecognitionResult['players'][number] => ({
   headCount: null,
+  characterCode: null,
+  characterType: 'unknown',
   name: null,
   cardDiceValues: [],
   cardPointValues: [],
   confidence: {
     headCount: 0,
+    characterCode: 0,
     name: 0,
     cardDiceValues: 0,
     cardPointValues: 0

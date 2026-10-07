@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DiceTrain raw model output fixture",
+  "type": "object",
+  "required": ["schemaVersion", "model", "roleSnapshotVersion", "generatedAt", "frames"],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "model": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "roleSnapshotVersion": { "type": "string", "pattern": "^[0-9]{14}$" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "frames": { "type": "array", "items": { "$ref": "#/$defs/frame" } }
+  },
+  "$defs": {
+    "prediction": {
+      "type": "object",
+      "required": ["detectionId", "label", "confidence", "bbox", "attributes"],
+      "properties": {
+        "detectionId": { "type": "string" },
+        "label": {
+          "enum": [
+            "board_die",
+            "round_slot",
+            "player_head_count",
+            "map_character",
+            "battle_character",
+            "card_dice_value",
+            "card_point_value"
+          ]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "bbox": {
+          "type": "array",
+          "prefixItems": [
+            { "type": "number" },
+            { "type": "number" },
+            { "type": "number" },
+            { "type": "number" }
+          ],
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "attributes": {
+          "type": "object",
+          "additionalProperties": { "type": ["string", "number"] }
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "required": ["frameId", "frameNumber", "capturedAt", "image", "predictions"],
+      "properties": {
+        "frameId": { "type": "string" },
+        "frameNumber": { "type": "integer", "minimum": 0 },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "image": {
+          "type": "object",
+          "required": ["width", "height"],
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          }
+        },
+        "predictions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/prediction" }
+        }
+      }
+    }
+  }
+}

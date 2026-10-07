@@ -10,9 +10,7 @@ const api = {
   exportAppLogs: () => ipcRenderer.invoke('app:export-logs'),
   refreshGameCatalog: () => ipcRenderer.invoke('games:refresh-catalog'),
   setActiveGame: (key: string) => ipcRenderer.invoke('games:set-active', key),
-  startMockRecognition: (key: string) => ipcRenderer.invoke('recognition:start-mock', key),
-  prepareRecognitionCapture: (key: string) =>
-    ipcRenderer.invoke('recognition:prepare-capture', key),
+  startRecognition: (key: string) => ipcRenderer.invoke('recognition:start', key),
   prepareVideoRecognition: (key: string) => ipcRenderer.invoke('recognition:prepare-video', key),
   getVideoFilePath: (file: File) => webUtils.getPathForFile(file),
   startVideoFileRecognition: (key: string, filePath: string) =>

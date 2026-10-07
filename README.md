@@ -40,6 +40,14 @@ $ pnpm install
 $ pnpm dev
 ```
 
+如需使用模拟识别数据，在项目根目录的 `.env` 中设置：
+
+```dotenv
+MOCK_DATA=true
+```
+
+修改后重新启动应用。启用后点击“开始识别”会直接播放模拟数据，不会连接游戏窗口或执行截图逻辑。可复制 `.env.example` 作为初始配置；`.env` 属于本地配置，不会提交到 Git。
+
 ### Build
 
 ```bash

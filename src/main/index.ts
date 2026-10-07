@@ -126,14 +126,17 @@ app.whenReady().then(() => {
     return localStore.setActiveGame(key)
   })
 
-  ipcMain.handle('recognition:start-mock', (_, key: string) => {
-    appLogger.info('recognition', '启动模拟识别', { key })
-    recognitionWorker.startMock(key)
-    return localStore.getBootstrapState(recognitionWorker.getStatus().running)
-  })
-
-  ipcMain.handle('recognition:prepare-capture', async (_, key: string) => {
+  ipcMain.handle('recognition:start', async (_, key: string) => {
     try {
+      if (isMockDataEnabled()) {
+        appLogger.info('recognition', 'MOCK_DATA 已启用，启动模拟识别', { key })
+        recognitionWorker.startMock(key)
+        return {
+          mode: 'mock' as const,
+          state: localStore.getBootstrapState(recognitionWorker.getStatus().running)
+        }
+      }
+
       appLogger.info('recognition', '准备启动窗口捕获', { key })
       const target = await prepareCaptureTarget(key)
       recognitionWorker.startCapture(target)
@@ -144,11 +147,12 @@ app.whenReady().then(() => {
       })
 
       return {
+        mode: 'capture' as const,
         state: localStore.getBootstrapState(recognitionWorker.getStatus().running),
         target
       }
     } catch (error) {
-      appLogger.error('recognition', '窗口捕获准备失败', error)
+      appLogger.error('recognition', '识别启动失败', error)
       throw error
     }
   })
@@ -325,6 +329,10 @@ async function checkRecognitionTarget(): Promise<RecognitionTargetHealth> {
 
 function getBootstrapState(): BootstrapState {
   return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+}
+
+function isMockDataEnabled(): boolean {
+  return process.env['MOCK_DATA']?.trim().toLowerCase() === 'true'
 }
 
 function prepareVideoCaptureTarget(gameKey: string): RecognitionCaptureTarget {

@@ -1,10 +1,10 @@
 .statsPanel {
   display: grid;
-  grid-template-rows: auto auto auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto;
+  box-sizing: border-box;
   min-width: 0;
-  min-height: 0;
+  min-height: 100%;
   padding: 18px 22px;
-  overflow: hidden;
   background: var(--surface);
 }
 
@@ -77,8 +77,6 @@
 }
 
 .eventsGrid {
-  min-height: 0;
-  overflow: auto;
   border-top: 1px solid var(--border);
 }
 

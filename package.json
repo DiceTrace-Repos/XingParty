@@ -18,6 +18,8 @@
     "start": "electron-vite preview",
     "dev": "electron-vite dev",
     "build": "node scripts/copy-ffmpeg.mjs && npm run typecheck && electron-vite build",
+    "mock:recognition": "node --experimental-default-type=module --experimental-strip-types scripts/mock/generate-raw-model-output.ts",
+    "mock:recognition:test": "node --experimental-default-type=module --experimental-strip-types --test scripts/mock/generate-raw-model-output.test.ts scripts/mock/raw-model-output-parser.test.ts",
     "postinstall": "electron-builder install-app-deps",
     "build:unpack": "npm run build && electron-builder --dir",
     "build:win": "npm run build && electron-builder --win --x64",

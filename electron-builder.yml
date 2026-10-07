@@ -12,6 +12,9 @@ files:
 asarUnpack:
   - resources/**
   - ffmpeg/**
+extraResources:
+  - from: resources/mock
+    to: mock
 win:
   executableName: XingParty
   icon: resources/icon.ico

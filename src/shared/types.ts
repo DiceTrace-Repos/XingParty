@@ -1,3 +1,5 @@
+import type { RawModelFrame } from './raw-model-output'
+
 export type Locale = 'zh-CN' | 'en-US'
 export type PlatformName = NodeJS.Platform
 
@@ -83,6 +85,7 @@ export interface BootstrapState {
   games: StoredGame[]
   activeGame?: StoredGame
   recentEvents: RecentDiceEvent[]
+  latestRecognition?: RecognitionRecord
   recognitionRunning: boolean
 }
 
@@ -157,11 +160,14 @@ export interface RecognitionConfidence {
 
 export interface LuckyPartyPlayerInfo {
   headCount: number | null
-  name: string | null
+  characterCode: string | null
+  characterType: 'role' | 'monster' | 'unknown'
+  name: string[] | null
   cardDiceValues: Array<number | null>
   cardPointValues: Array<number | null>
   confidence: {
     headCount: number
+    characterCode: number
     name: number
     cardDiceValues: number
     cardPointValues: number
@@ -176,6 +182,20 @@ export interface LuckyPartyRecognitionResult {
   characterCode: string | null
   players: [LuckyPartyPlayerInfo, LuckyPartyPlayerInfo]
   confidence: RecognitionConfidence
+}
+
+export interface RecognitionRecord {
+  id: string
+  gameId: string
+  gameKey: string
+  capturedAt: string
+  scene: SceneType
+  phase: PhaseType
+  side?: DiceSide
+  confidence: number
+  value?: number
+  structured: LuckyPartyRecognitionResult
+  rawFrame?: RawModelFrame
 }
 
 export interface RecognitionTargetHealth {

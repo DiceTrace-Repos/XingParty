@@ -1,0 +1,4815 @@
+{
+  "schemaVersion": 2,
+  "model": {
+    "name": "lucky-party-detector",
+    "version": "mock-1"
+  },
+  "roleSnapshotVersion": "20261006000000",
+  "generatedAt": "2026-10-06T03:20:37.109207Z",
+  "frames": [
+    {
+      "frameId": "round-01-map-01",
+      "frameNumber": 0,
+      "capturedAt": "2026-10-06T00:00:00Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.957,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "1",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.9294,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "2",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9704,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "3",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.8389,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "4",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.8341,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "5",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.9207,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "6",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.835,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "1"
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-die-1",
+          "label": "board_die",
+          "confidence": 0.8424,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "4"
+          }
+        },
+        {
+          "detectionId": "round-01-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9855,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "115"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-map-02",
+      "frameNumber": 1,
+      "capturedAt": "2026-10-06T00:00:03Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.8305,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "1",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.9445,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "2",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9866,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "3",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.9048,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "4",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.8825,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "5",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.9746,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "null",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.9346,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "4"
+          }
+        },
+        {
+          "detectionId": "round-01-map-02-character",
+          "label": "map_character",
+          "confidence": 0.969,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "102"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-map-03",
+      "frameNumber": 2,
+      "capturedAt": "2026-10-06T00:00:06Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8271,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "1",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9634,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "2",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.8497,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "3",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9584,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "4",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.9388,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "5",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.9622,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "6",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.8524,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "8"
+          }
+        },
+        {
+          "detectionId": "round-01-map-03-character",
+          "label": "map_character",
+          "confidence": 0.907,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "109"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-map-04",
+      "frameNumber": 3,
+      "capturedAt": "2026-10-06T00:00:09Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.9764,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "1",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.8396,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "2",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.8386,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.9046,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "4",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9144,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "5",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.8324,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.9239,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "10"
+          }
+        },
+        {
+          "detectionId": "round-01-map-04-character",
+          "label": "map_character",
+          "confidence": 0.9808,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "118"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-battle-01",
+      "frameNumber": 4,
+      "capturedAt": "2026-10-06T00:00:12Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.9267,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "105",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9091,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "29",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9443,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.824,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1002",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8389,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "15",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9026,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 2,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-battle-02",
+      "frameNumber": 5,
+      "capturedAt": "2026-10-06T00:00:15Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.8957,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "102",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8599,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "16",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9052,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.9079,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1006",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8828,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "21",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9533,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 5,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-01-battle-03",
+      "frameNumber": 6,
+      "capturedAt": "2026-10-06T00:00:18Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-01-battle-03-left-character",
+          "label": "battle_character",
+          "confidence": 0.8357,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1004",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-03-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9292,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "27",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-03-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9577,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 7,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-03-right-character",
+          "label": "battle_character",
+          "confidence": 0.8698,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "106",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-03-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8399,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "14",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-01-battle-03-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8224,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 8,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-map-01",
+      "frameNumber": 7,
+      "capturedAt": "2026-10-06T00:00:21Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.8948,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "2",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.8371,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "3",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.8739,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "4",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.8267,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "5",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.8668,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "6",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.9179,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "7",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.8396,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "10"
+          }
+        },
+        {
+          "detectionId": "round-02-map-01-character",
+          "label": "map_character",
+          "confidence": 0.979,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "115"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-map-02",
+      "frameNumber": 8,
+      "capturedAt": "2026-10-06T00:00:24Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.9402,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "2",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.9803,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "3",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9789,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "4",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.9257,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "5",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.8919,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "6",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.9335,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "7",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.8485,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-02-map-02-character",
+          "label": "map_character",
+          "confidence": 0.979,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "100"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-map-03",
+      "frameNumber": 9,
+      "capturedAt": "2026-10-06T00:00:27Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8947,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "2",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9892,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "3",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.9053,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "4",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9138,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "5",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.8744,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "6",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.8659,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "7",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.8672,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "3"
+          }
+        },
+        {
+          "detectionId": "round-02-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9075,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "114"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-map-04",
+      "frameNumber": 10,
+      "capturedAt": "2026-10-06T00:00:30Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.8448,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "2",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9209,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "3",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.9017,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "4",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.9026,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "5",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9214,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "6",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.8949,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.8394,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "null"
+          }
+        },
+        {
+          "detectionId": "round-02-map-04-character",
+          "label": "map_character",
+          "confidence": 0.8989,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "104"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-battle-01",
+      "frameNumber": 11,
+      "capturedAt": "2026-10-06T00:00:33Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.9465,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "102",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8201,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "18",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8609,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 23,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.8333,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8839,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "22",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8518,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 3,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-02-battle-02",
+      "frameNumber": 12,
+      "capturedAt": "2026-10-06T00:00:36Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-02-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.8554,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1005",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8859,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "4",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.894,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 10,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.859,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "100",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8429,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "15",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9162,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 11,
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8841,
+          "bbox": [1673, 820, 1823, 900],
+          "attributes": {
+            "value": 7,
+            "index": 1,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-dice-2",
+          "label": "card_dice_value",
+          "confidence": 0.8536,
+          "bbox": [1601, 820, 1751, 900],
+          "attributes": {
+            "value": 6,
+            "index": 2,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9881,
+          "bbox": [1705, 850, 1780, 940],
+          "attributes": {
+            "value": "4",
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-02-battle-02-right-point-1",
+          "label": "card_point_value",
+          "confidence": 0.96,
+          "bbox": [1633, 850, 1708, 940],
+          "attributes": {
+            "value": "2",
+            "index": 1,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-map-01",
+      "frameNumber": 13,
+      "capturedAt": "2026-10-06T00:00:39Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.8734,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "null",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.9563,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "4",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9774,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "5",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.9371,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "6",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.8712,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "7",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.8316,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "8",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.9123,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-03-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9352,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "110"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-map-02",
+      "frameNumber": 14,
+      "capturedAt": "2026-10-06T00:00:42Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.9592,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "3",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.9701,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "4",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9781,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "5",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.9658,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "6",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.9384,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "7",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.8401,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "8",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.8204,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "3"
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-die-1",
+          "label": "board_die",
+          "confidence": 0.9825,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "2"
+          }
+        },
+        {
+          "detectionId": "round-03-map-02-character",
+          "label": "map_character",
+          "confidence": 0.9546,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "113"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-map-03",
+      "frameNumber": 15,
+      "capturedAt": "2026-10-06T00:00:45Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8737,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "3",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.8334,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "4",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.922,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "5",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9715,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "6",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.8632,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "7",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.8333,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "8",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.8987,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "7"
+          }
+        },
+        {
+          "detectionId": "round-03-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9409,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "107"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-map-04",
+      "frameNumber": 16,
+      "capturedAt": "2026-10-06T00:00:48Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.8712,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "3",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9483,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "4",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.8414,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "5",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.982,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "6",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.8224,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "7",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.8368,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.8976,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "3"
+          }
+        },
+        {
+          "detectionId": "round-03-map-04-character",
+          "label": "map_character",
+          "confidence": 0.9938,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "106"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-battle-01",
+      "frameNumber": 17,
+      "capturedAt": "2026-10-06T00:00:51Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.8947,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "102",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9374,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "30",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8898,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 22,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.9723,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 20,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8468,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "3",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.9591,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1002",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8222,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "21",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9203,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 6,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-battle-02",
+      "frameNumber": 18,
+      "capturedAt": "2026-10-06T00:00:54Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.9277,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "112",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9881,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "1",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.899,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.961,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 21,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9202,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "4",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.8412,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1002",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8442,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "28",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9471,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 9,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-03-battle-03",
+      "frameNumber": 19,
+      "capturedAt": "2026-10-06T00:00:57Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-03-battle-03-left-character",
+          "label": "battle_character",
+          "confidence": 0.9107,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1002",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9561,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "22",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8787,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 1,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-character",
+          "label": "battle_character",
+          "confidence": 0.8718,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "102",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8444,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "null",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9827,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 1,
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8212,
+          "bbox": [1673, 820, 1823, 900],
+          "attributes": {
+            "value": 9,
+            "index": 1,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-dice-2",
+          "label": "card_dice_value",
+          "confidence": 0.8582,
+          "bbox": [1601, 820, 1751, 900],
+          "attributes": {
+            "value": 14,
+            "index": 2,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9928,
+          "bbox": [1705, 850, 1780, 940],
+          "attributes": {
+            "value": "2",
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-03-battle-03-right-point-1",
+          "label": "card_point_value",
+          "confidence": 0.8642,
+          "bbox": [1633, 850, 1708, 940],
+          "attributes": {
+            "value": "2",
+            "index": 1,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-map-01",
+      "frameNumber": 20,
+      "capturedAt": "2026-10-06T00:01:00Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.849,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "4",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.8482,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "5",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9379,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "6",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.9026,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "7",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.9271,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "8",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.8539,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "9",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.8378,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "null"
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-die-1",
+          "label": "board_die",
+          "confidence": 0.9093,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "10"
+          }
+        },
+        {
+          "detectionId": "round-04-map-01-character",
+          "label": "map_character",
+          "confidence": 0.8411,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "102"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-map-02",
+      "frameNumber": 21,
+      "capturedAt": "2026-10-06T00:01:03Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.9676,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "4",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.9834,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "5",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9388,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "6",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.8219,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "7",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.9342,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "8",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.9875,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "9",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.89,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "null"
+          }
+        },
+        {
+          "detectionId": "round-04-map-02-character",
+          "label": "map_character",
+          "confidence": 0.9048,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "101"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-map-03",
+      "frameNumber": 22,
+      "capturedAt": "2026-10-06T00:01:06Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.9163,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "4",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.881,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "5",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.9626,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "6",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9491,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "7",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.8214,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "8",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.823,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "9",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.9114,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "9"
+          }
+        },
+        {
+          "detectionId": "round-04-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9134,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "118"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-map-04",
+      "frameNumber": 23,
+      "capturedAt": "2026-10-06T00:01:09Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.9565,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "4",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9083,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "5",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.9139,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "6",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.9684,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "7",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9716,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "8",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.9872,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.8807,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "1"
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-die-1",
+          "label": "board_die",
+          "confidence": 0.8963,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-04-map-04-character",
+          "label": "map_character",
+          "confidence": 0.8822,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "104"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-battle-01",
+      "frameNumber": 24,
+      "capturedAt": "2026-10-06T00:01:12Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.9756,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "119",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9279,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "16",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8529,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 18,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8908,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 6,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9746,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "4",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.8439,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1004",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8606,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "29",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8804,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 3,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-04-battle-02",
+      "frameNumber": 25,
+      "capturedAt": "2026-10-06T00:01:15Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-04-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.9739,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8875,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "13",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9642,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 8,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.9084,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "113",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8366,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "5",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-04-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.908,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 6,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-map-01",
+      "frameNumber": 26,
+      "capturedAt": "2026-10-06T00:01:18Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.9946,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "5",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.8743,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "null",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9687,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "7",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.9625,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "8",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.9562,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "9",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.9542,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "10",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.9118,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "8"
+          }
+        },
+        {
+          "detectionId": "round-05-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9378,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "113"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-map-02",
+      "frameNumber": 27,
+      "capturedAt": "2026-10-06T00:01:21Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.9669,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "5",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.8867,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "6",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.8466,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.9007,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "8",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.8949,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "9",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.9913,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "10",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.9616,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "8"
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-die-1",
+          "label": "board_die",
+          "confidence": 0.9728,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "10"
+          }
+        },
+        {
+          "detectionId": "round-05-map-02-character",
+          "label": "map_character",
+          "confidence": 0.9622,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "105"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-map-03",
+      "frameNumber": 28,
+      "capturedAt": "2026-10-06T00:01:24Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8348,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "5",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9639,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "6",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.8568,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "7",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.8826,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "8",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.8916,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "null",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.9344,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "10",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.8419,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-05-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9429,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "116"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-map-04",
+      "frameNumber": 29,
+      "capturedAt": "2026-10-06T00:01:27Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.9276,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "5",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9429,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "6",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.9477,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "7",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.8793,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "8",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9883,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "9",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.8958,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.9253,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "9"
+          }
+        },
+        {
+          "detectionId": "round-05-map-04-character",
+          "label": "map_character",
+          "confidence": 0.9116,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "109"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-battle-01",
+      "frameNumber": 30,
+      "capturedAt": "2026-10-06T00:01:30Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.9239,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "111",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9807,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "4",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8355,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8386,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 2,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8438,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "1",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.9707,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1006",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.857,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "30",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9939,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 6,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-05-battle-02",
+      "frameNumber": 31,
+      "capturedAt": "2026-10-06T00:01:33Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-05-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.9866,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9442,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "29",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.983,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 9,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.9663,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "116",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8298,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "23",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8572,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 8,
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.9372,
+          "bbox": [1673, 820, 1823, 900],
+          "attributes": {
+            "value": 12,
+            "index": 1,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-dice-2",
+          "label": "card_dice_value",
+          "confidence": 0.9891,
+          "bbox": [1601, 820, 1751, 900],
+          "attributes": {
+            "value": 3,
+            "index": 2,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9533,
+          "bbox": [1705, 850, 1780, 940],
+          "attributes": {
+            "value": "3",
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-05-battle-02-right-point-1",
+          "label": "card_point_value",
+          "confidence": 0.8528,
+          "bbox": [1633, 850, 1708, 940],
+          "attributes": {
+            "value": "2",
+            "index": 1,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-map-01",
+      "frameNumber": 32,
+      "capturedAt": "2026-10-06T00:01:36Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.9294,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "6",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.8464,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "7",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9668,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.8729,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "9",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.9092,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "10",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.8777,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "11",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.9173,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "8"
+          }
+        },
+        {
+          "detectionId": "round-06-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9157,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "102"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-map-02",
+      "frameNumber": 33,
+      "capturedAt": "2026-10-06T00:01:39Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.945,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "6",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.9347,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "7",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9285,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "8",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.9387,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "9",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.9328,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "10",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.928,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "11",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.8836,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "10"
+          }
+        },
+        {
+          "detectionId": "round-06-map-02-character",
+          "label": "map_character",
+          "confidence": 0.8788,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "117"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-map-03",
+      "frameNumber": 34,
+      "capturedAt": "2026-10-06T00:01:42Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8432,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "6",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9239,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "7",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.8576,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9902,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "9",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.9225,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "10",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.8556,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "11",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.8313,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "7"
+          }
+        },
+        {
+          "detectionId": "round-06-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9046,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "101"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-map-04",
+      "frameNumber": 35,
+      "capturedAt": "2026-10-06T00:01:45Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.8813,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "6",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9371,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "7",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.8482,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "8",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.8927,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "null",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.8917,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "10",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.8416,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.8289,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "4"
+          }
+        },
+        {
+          "detectionId": "round-06-map-04-character",
+          "label": "map_character",
+          "confidence": 0.8523,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "120"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-battle-01",
+      "frameNumber": 36,
+      "capturedAt": "2026-10-06T00:01:48Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.8285,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "108",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8876,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "25",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8495,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8912,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 23,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8425,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "3",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.9704,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.9366,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "15",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8916,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 7,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-battle-02",
+      "frameNumber": 37,
+      "capturedAt": "2026-10-06T00:01:51Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.9512,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "116",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8968,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "4",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8221,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 28,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.917,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 13,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8809,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "4",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.9788,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8538,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "17",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8775,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 5,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-battle-03",
+      "frameNumber": 38,
+      "capturedAt": "2026-10-06T00:01:54Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-battle-03-left-character",
+          "label": "battle_character",
+          "confidence": 0.8266,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1005",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-03-left-head",
+          "label": "player_head_count",
+          "confidence": 0.896,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "23",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-03-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8373,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 10,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-03-right-character",
+          "label": "battle_character",
+          "confidence": 0.8501,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "115",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-03-right-head",
+          "label": "player_head_count",
+          "confidence": 0.9269,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "16",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-03-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8398,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 6,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-06-battle-04",
+      "frameNumber": 39,
+      "capturedAt": "2026-10-06T00:01:57Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-06-battle-04-left-character",
+          "label": "battle_character",
+          "confidence": 0.9504,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1004",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8205,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "8",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9411,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 7,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-character",
+          "label": "battle_character",
+          "confidence": 0.897,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "105",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8221,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "15",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.977,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 14,
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.8826,
+          "bbox": [1673, 820, 1823, 900],
+          "attributes": {
+            "value": 12,
+            "index": 1,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-dice-2",
+          "label": "card_dice_value",
+          "confidence": 0.8776,
+          "bbox": [1601, 820, 1751, 900],
+          "attributes": {
+            "value": 7,
+            "index": 2,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8878,
+          "bbox": [1705, 850, 1780, 940],
+          "attributes": {
+            "value": "2",
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-06-battle-04-right-point-1",
+          "label": "card_point_value",
+          "confidence": 0.9442,
+          "bbox": [1633, 850, 1708, 940],
+          "attributes": {
+            "value": "1",
+            "index": 1,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-map-01",
+      "frameNumber": 40,
+      "capturedAt": "2026-10-06T00:02:00Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.9877,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "7",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.8487,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "null",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.8515,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "9",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.828,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "10",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.8406,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "11",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.9119,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "12",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.9211,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "5"
+          }
+        },
+        {
+          "detectionId": "round-07-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9151,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "115"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-map-02",
+      "frameNumber": 41,
+      "capturedAt": "2026-10-06T00:02:03Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.9667,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "7",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.8333,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "8",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.9226,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "9",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.8564,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "10",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.8465,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "11",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.8814,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "12",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.8402,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "null"
+          }
+        },
+        {
+          "detectionId": "round-07-map-02-character",
+          "label": "map_character",
+          "confidence": 0.9374,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "117"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-map-03",
+      "frameNumber": 42,
+      "capturedAt": "2026-10-06T00:02:06Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8451,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "7",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9234,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "8",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.9373,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "9",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9636,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "10",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.8682,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "11",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.8901,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "12",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.9524,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "7"
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-die-1",
+          "label": "board_die",
+          "confidence": 0.952,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "9"
+          }
+        },
+        {
+          "detectionId": "round-07-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9212,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "103"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-map-04",
+      "frameNumber": 43,
+      "capturedAt": "2026-10-06T00:02:09Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.9239,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "7",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.8711,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "8",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.8345,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.9553,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "10",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9325,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "11",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.9232,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.8664,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "2"
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-die-1",
+          "label": "board_die",
+          "confidence": 0.85,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "null"
+          }
+        },
+        {
+          "detectionId": "round-07-map-04-character",
+          "label": "map_character",
+          "confidence": 0.9041,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "116"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-battle-01",
+      "frameNumber": 44,
+      "capturedAt": "2026-10-06T00:02:12Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.9618,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "101",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9777,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "5",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9869,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 23,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.9095,
+          "bbox": [97, 820, 247, 900],
+          "attributes": {
+            "value": 14,
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-dice-2",
+          "label": "card_dice_value",
+          "confidence": 0.9063,
+          "bbox": [169, 820, 319, 900],
+          "attributes": {
+            "value": 23,
+            "index": 2,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-point-0",
+          "label": "card_point_value",
+          "confidence": 0.8433,
+          "bbox": [130, 850, 205, 940],
+          "attributes": {
+            "value": "1",
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-left-point-1",
+          "label": "card_point_value",
+          "confidence": 0.838,
+          "bbox": [202, 850, 277, 940],
+          "attributes": {
+            "value": "3",
+            "index": 1,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.9542,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1002",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.9241,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "3",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9927,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 2,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-07-battle-02",
+      "frameNumber": 45,
+      "capturedAt": "2026-10-06T00:02:15Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-07-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.8942,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1005",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9073,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "11",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.909,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 5,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.8271,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "102",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8773,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "24",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8502,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 1,
+            "index": 0,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-right-dice-1",
+          "label": "card_dice_value",
+          "confidence": 0.9545,
+          "bbox": [1673, 820, 1823, 900],
+          "attributes": {
+            "value": 3,
+            "index": 1,
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-07-battle-02-right-point-0",
+          "label": "card_point_value",
+          "confidence": 0.9681,
+          "bbox": [1705, 850, 1780, 940],
+          "attributes": {
+            "value": "2",
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-map-01",
+      "frameNumber": 46,
+      "capturedAt": "2026-10-06T00:02:18Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-map-01-round-0",
+          "label": "round_slot",
+          "confidence": 0.8888,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "8",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-round-1",
+          "label": "round_slot",
+          "confidence": 0.908,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "9",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-round-2",
+          "label": "round_slot",
+          "confidence": 0.9928,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "null",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-round-3",
+          "label": "round_slot",
+          "confidence": 0.9787,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "11",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-round-4",
+          "label": "round_slot",
+          "confidence": 0.9076,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "12",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-round-5",
+          "label": "round_slot",
+          "confidence": 0.8577,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "13",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-die-0",
+          "label": "board_die",
+          "confidence": 0.9271,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "8"
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-die-1",
+          "label": "board_die",
+          "confidence": 0.8599,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "4"
+          }
+        },
+        {
+          "detectionId": "round-08-map-01-character",
+          "label": "map_character",
+          "confidence": 0.9218,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "118"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-map-02",
+      "frameNumber": 47,
+      "capturedAt": "2026-10-06T00:02:21Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-map-02-round-0",
+          "label": "round_slot",
+          "confidence": 0.889,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "8",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-round-1",
+          "label": "round_slot",
+          "confidence": 0.8863,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "9",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-round-2",
+          "label": "round_slot",
+          "confidence": 0.8781,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "10",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-round-3",
+          "label": "round_slot",
+          "confidence": 0.8898,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "11",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-round-4",
+          "label": "round_slot",
+          "confidence": 0.8321,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "12",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-round-5",
+          "label": "round_slot",
+          "confidence": 0.8324,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "13",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-die-0",
+          "label": "board_die",
+          "confidence": 0.8936,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-die-1",
+          "label": "board_die",
+          "confidence": 0.8454,
+          "bbox": [990, 175, 1260, 455],
+          "attributes": {
+            "index": 1,
+            "value": "5"
+          }
+        },
+        {
+          "detectionId": "round-08-map-02-character",
+          "label": "map_character",
+          "confidence": 0.8263,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "103"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-map-03",
+      "frameNumber": 48,
+      "capturedAt": "2026-10-06T00:02:24Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-map-03-round-0",
+          "label": "round_slot",
+          "confidence": 0.8738,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "8",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-round-1",
+          "label": "round_slot",
+          "confidence": 0.9343,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "9",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-round-2",
+          "label": "round_slot",
+          "confidence": 0.8514,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "10",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-round-3",
+          "label": "round_slot",
+          "confidence": 0.9543,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "11",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-round-4",
+          "label": "round_slot",
+          "confidence": 0.873,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "12",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-round-5",
+          "label": "round_slot",
+          "confidence": 0.8327,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "13",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-die-0",
+          "label": "board_die",
+          "confidence": 0.83,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "6"
+          }
+        },
+        {
+          "detectionId": "round-08-map-03-character",
+          "label": "map_character",
+          "confidence": 0.9595,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "107"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-map-04",
+      "frameNumber": 49,
+      "capturedAt": "2026-10-06T00:02:27Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-map-04-round-0",
+          "label": "round_slot",
+          "confidence": 0.9349,
+          "bbox": [650, 25, 735, 75],
+          "attributes": {
+            "value": "8",
+            "index": 0
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-round-1",
+          "label": "round_slot",
+          "confidence": 0.9201,
+          "bbox": [750, 25, 835, 75],
+          "attributes": {
+            "value": "null",
+            "index": 1
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-round-2",
+          "label": "round_slot",
+          "confidence": 0.9746,
+          "bbox": [850, 25, 935, 75],
+          "attributes": {
+            "value": "10",
+            "index": 2
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-round-3",
+          "label": "round_slot",
+          "confidence": 0.9571,
+          "bbox": [950, 25, 1035, 75],
+          "attributes": {
+            "value": "null",
+            "index": 3
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-round-4",
+          "label": "round_slot",
+          "confidence": 0.9678,
+          "bbox": [1050, 25, 1135, 75],
+          "attributes": {
+            "value": "12",
+            "index": 4
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-round-5",
+          "label": "round_slot",
+          "confidence": 0.9646,
+          "bbox": [1150, 25, 1235, 75],
+          "attributes": {
+            "value": "-1",
+            "index": 5
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-die-0",
+          "label": "board_die",
+          "confidence": 0.9753,
+          "bbox": [650, 175, 920, 455],
+          "attributes": {
+            "index": 0,
+            "value": "3"
+          }
+        },
+        {
+          "detectionId": "round-08-map-04-character",
+          "label": "map_character",
+          "confidence": 0.8211,
+          "bbox": [870, 410, 1080, 760],
+          "attributes": {
+            "value": "102"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-battle-01",
+      "frameNumber": 50,
+      "capturedAt": "2026-10-06T00:02:30Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-battle-01-left-character",
+          "label": "battle_character",
+          "confidence": 0.966,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "102",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-01-left-head",
+          "label": "player_head_count",
+          "confidence": 0.8529,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "1",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-01-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9812,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 1,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-01-right-character",
+          "label": "battle_character",
+          "confidence": 0.864,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "1005",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-01-right-head",
+          "label": "player_head_count",
+          "confidence": 0.905,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "14",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-01-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8772,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 1,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    },
+    {
+      "frameId": "round-08-battle-02",
+      "frameNumber": 51,
+      "capturedAt": "2026-10-06T00:02:33Z",
+      "image": {
+        "width": 1920,
+        "height": 1080
+      },
+      "predictions": [
+        {
+          "detectionId": "round-08-battle-02-left-character",
+          "label": "battle_character",
+          "confidence": 0.8852,
+          "bbox": [360, 250, 780, 820],
+          "attributes": {
+            "value": "1003",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-02-left-head",
+          "label": "player_head_count",
+          "confidence": 0.9802,
+          "bbox": [470, 100, 660, 245],
+          "attributes": {
+            "value": "29",
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-02-left-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.9801,
+          "bbox": [25, 820, 175, 900],
+          "attributes": {
+            "value": 3,
+            "index": 0,
+            "side": "left"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-02-right-character",
+          "label": "battle_character",
+          "confidence": 0.8855,
+          "bbox": [1110, 250, 1530, 820],
+          "attributes": {
+            "value": "119",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-02-right-head",
+          "label": "player_head_count",
+          "confidence": 0.8743,
+          "bbox": [1160, 100, 1350, 245],
+          "attributes": {
+            "value": "20",
+            "side": "right"
+          }
+        },
+        {
+          "detectionId": "round-08-battle-02-right-dice-0",
+          "label": "card_dice_value",
+          "confidence": 0.8461,
+          "bbox": [1745, 820, 1895, 900],
+          "attributes": {
+            "value": 13,
+            "index": 0,
+            "side": "right"
+          }
+        }
+      ]
+    }
+  ]
+}
