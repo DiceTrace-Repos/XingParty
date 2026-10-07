@@ -48,18 +48,25 @@ export interface Round {
 }
 
 export interface DiceEvent {
-  id: string
-  gameId: string
-  gameKey: string
-  sessionId?: string
-  roundId?: string
-  scene: SceneType
-  phase: PhaseType
-  side?: DiceSide
-  confidence: number
-  capturedAt: string
+  value: number
+  from: FromSchema
   createdAt: string
-  correctedAt?: string
+  correctedInfo?: {
+    originValue: DiceEvent
+    newValue: DiceEvent
+    correctedAt: string
+  }[]
+}
+
+export interface FromSchema {
+  userDevice: string
+  sessionId: string
+  roundId: string
+  gameRole: string
+  cardInfo?: {
+    cost: number
+  }
+  frameInfo: string
 }
 
 export interface DiceValueStep {
