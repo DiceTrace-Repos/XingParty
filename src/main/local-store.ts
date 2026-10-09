@@ -17,9 +17,9 @@ import type {
 } from '../shared/types'
 import type { GameRecognitionResult } from '../games/types'
 import { projectRecognitionFrameToDiceEvents } from '../games/dice-event-projector'
+import type { ClientSettingsService } from './client-settings-service'
 
 const FILES = {
-  client: 'client_state',
   games: 'games_cache',
   gameRoleResource: 'game_roles_resource',
   legacyEvents: 'dice_events',
@@ -71,7 +71,7 @@ export class LocalStore {
   private readonly diceStatisticsSnapshots = new Map<string, DiceStatistics>()
   constructor(
     private readonly storage: EncryptedStorage,
-    private readonly defaultGamePath = ''
+    private readonly settings: ClientSettingsService
   ) {}
 
   getBootstrapState(recognitionRunning: boolean): BootstrapState {
@@ -132,27 +132,14 @@ export class LocalStore {
   }
 
   updateClientSettings(update: ClientSettingsUpdate): ClientState {
-    const client = this.getClient()
-    const nextClient: ClientState = {
-      ...client,
-      gamePath:
-        update.gamePath === undefined
-          ? client.gamePath
-          : update.gamePath.trim() || this.defaultGamePath,
-      autoShareData:
-        update.autoShareData === undefined ? client.autoShareData : update.autoShareData,
-      updatedAt: new Date().toISOString()
-    }
-
-    this.saveClient(nextClient)
-    return nextClient
+    return this.settings.update(update)
   }
 
-  appendMockRecognitionEvent(gameKey: string): void {
+  appendMockRecognitionEvent(gameKey: string): DiceEvent[] {
     const game = this.getGames().find((item) => item.key === gameKey)
 
     if (!game) {
-      return
+      return []
     }
 
     const now = new Date().toISOString()
@@ -160,13 +147,14 @@ export class LocalStore {
     const round = this.ensureRound(game.id, game.key, session.id, now)
     const event = this.createMockDiceEvent(session.id, round.id, now, this.getClient().clientId)
     this.appendEvent(game.key, event)
+    return [event]
   }
 
-  appendRecognitionEvent(gameKey: string, result: GameRecognitionResult): void {
+  appendRecognitionEvent(gameKey: string, result: GameRecognitionResult): DiceEvent[] {
     const game = this.getGames().find((item) => item.key === gameKey)
 
     if (!game) {
-      return
+      return []
     }
 
     const now = result.structured?.capturedAt ?? new Date().toISOString()
@@ -197,7 +185,7 @@ export class LocalStore {
     }
 
     if (!result.intermediate) {
-      return
+      return []
     }
 
     const events = projectRecognitionFrameToDiceEvents(result.intermediate, {
@@ -209,6 +197,7 @@ export class LocalStore {
     for (const event of events) {
       this.appendEvent(game.key, event)
     }
+    return events
   }
 
   private appendEvent(gameKey: string, event: DiceEvent): void {
@@ -232,38 +221,7 @@ export class LocalStore {
   }
 
   private ensureInitialized(): void {
-    if (this.storage.readCollection<ClientState>(FILES.client, []).length === 0) {
-      const now = new Date().toISOString()
-      this.storage.writeCollection<ClientState>(FILES.client, [
-        {
-          clientId: randomUUID(),
-          locale: 'zh-CN',
-          gamePath: this.defaultGamePath,
-          autoShareData: false,
-          createdAt: now,
-          updatedAt: now
-        }
-      ])
-    } else {
-      const client = this.storage.readCollection<ClientState>(FILES.client, [])[0]
-
-      if (
-        client &&
-        (typeof client.gamePath !== 'string' ||
-          (client.gamePath.trim() === '' && this.defaultGamePath !== '') ||
-          typeof client.autoShareData !== 'boolean')
-      ) {
-        this.saveClient({
-          ...client,
-          gamePath:
-            typeof client.gamePath === 'string' && client.gamePath.trim() !== ''
-              ? client.gamePath
-              : this.defaultGamePath,
-          autoShareData: typeof client.autoShareData === 'boolean' ? client.autoShareData : false,
-          updatedAt: new Date().toISOString()
-        })
-      }
-    }
+    this.settings.initialize()
 
     if (this.getGames().length === 0) {
       this.refreshGames()
@@ -271,18 +229,11 @@ export class LocalStore {
   }
 
   private getClient(): ClientState {
-    const client = this.storage.readCollection<ClientState>(FILES.client, [])[0]
-
-    if (!client) {
-      this.ensureInitialized()
-      return this.storage.readCollection<ClientState>(FILES.client, [])[0]
-    }
-
-    return client
+    return this.settings.getClient()
   }
 
   private saveClient(client: ClientState): void {
-    this.storage.writeCollection<ClientState>(FILES.client, [client])
+    this.settings.save(client)
   }
 
   private getGames(): StoredGame[] {

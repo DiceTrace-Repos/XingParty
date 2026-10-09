@@ -7,10 +7,12 @@ import { EncryptedStorage } from './encrypted-storage'
 import { LocalStore } from './local-store'
 import { RecognitionWorker } from './recognition-worker'
 import { appLogger } from './app-logger'
-import { createWindowMatcher } from './window-matcher'
 import { luckyPartyProfile } from '../games/lucky-party'
 import { VideoFrameExtractor } from './video-frame-extractor'
 import { GameRoleResourceService } from './game-role-resource-service'
+import { ClientSettingsService } from './client-settings-service'
+import { DiceEventUploadService } from './dice-event-upload-service'
+import { createPlatformAdapter } from './platform-adapters'
 import type {
   BootstrapState,
   ClientSettingsUpdate,
@@ -22,7 +24,9 @@ import type {
 let localStore: LocalStore
 let recognitionWorker: RecognitionWorker
 let gameRoleResourceService: GameRoleResourceService
+let clientSettingsService: ClientSettingsService
 const videoFrameExtractor = new VideoFrameExtractor()
+const platformAdapter = createPlatformAdapter()
 
 function createWindow(): void {
   // Create the browser window.
@@ -61,21 +65,21 @@ function createWindow(): void {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  localStore = new LocalStore(new EncryptedStorage(), getDefaultGamePath())
-  recognitionWorker = new RecognitionWorker(localStore)
+  const storage = new EncryptedStorage()
+  clientSettingsService = new ClientSettingsService(storage, getDefaultGamePath())
+  clientSettingsService.initialize()
+  localStore = new LocalStore(storage, clientSettingsService)
+  const uploadService = new DiceEventUploadService(clientSettingsService, createPlatformAdapter())
+  recognitionWorker = new RecognitionWorker(localStore, uploadService)
   gameRoleResourceService = new GameRoleResourceService(localStore)
   gameRoleResourceService.start()
   appLogger.info('app', '应用初始化完成', {
-    platform: process.platform,
+    platform: platformAdapter.platform,
     resourcesPath: process.resourcesPath,
     appPath: app.getAppPath()
   })
 
   app.setName('XingParty')
-
-  if (process.platform === 'darwin') {
-    app.dock?.setIcon(icon)
-  }
 
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.xingparty.app')
@@ -92,7 +96,7 @@ app.whenReady().then(() => {
   })
 
   ipcMain.handle('app:update-client-settings', (_, update: ClientSettingsUpdate) => {
-    localStore.updateClientSettings({
+    clientSettingsService.update({
       gamePath: typeof update.gamePath === 'string' ? update.gamePath : undefined,
       autoShareData: typeof update.autoShareData === 'boolean' ? update.autoShareData : undefined
     })
@@ -237,13 +241,8 @@ app.whenReady().then(() => {
   })
 })
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+  if (platformAdapter.platform !== 'darwin') app.quit()
 })
 
 app.on('before-quit', () => {
@@ -267,18 +266,18 @@ async function prepareCaptureTarget(gameKey: string): Promise<RecognitionCapture
   if (!exePath) {
     appLogger.error('recognition', '当前平台未配置 exePath', {
       gameKey,
-      platform: process.platform,
+      platform: platformAdapter.platform,
       configuredPlatforms: Object.keys(profile.exePaths)
     })
-    throw new Error(`当前平台暂未配置游戏窗口路径：${process.platform}`)
+    throw new Error(`当前平台暂未配置游戏窗口路径：${platformAdapter.platform}`)
   }
 
   appLogger.info('recognition', '使用 exePath 查找游戏窗口', {
     gameKey,
-    platform: process.platform,
+    platform: platformAdapter.platform,
     exePath
   })
-  const window = await createWindowMatcher().findSingleWindowByExePath(exePath)
+  const window = await platformAdapter.windowMatcher.findSingleWindowByExePath(exePath)
   appLogger.info('recognition', '已找到唯一游戏窗口', window)
 
   const sources = await desktopCapturer.getSources({
@@ -389,11 +388,5 @@ function prepareVideoCaptureTarget(gameKey: string): RecognitionCaptureTarget {
 }
 
 function getDefaultGamePath(): string {
-  return (
-    luckyPartyProfile.exePaths[process.platform] ??
-    Object.values(luckyPartyProfile.exePaths).find((configuredPath): configuredPath is string =>
-      Boolean(configuredPath)
-    ) ??
-    ''
-  )
+  return platformAdapter.getDefaultGamePath(luckyPartyProfile)
 }

@@ -1,6 +1,7 @@
 import { spawn, type ChildProcessWithoutNullStreams } from 'child_process'
 import { existsSync } from 'fs'
 import { join } from 'path'
+import { createPlatformAdapter } from './platform-adapters'
 
 type FrameHandler = (jpeg: Buffer) => void
 
@@ -76,7 +77,7 @@ function resolveFfmpegPath(): string {
     return configuredPath
   }
 
-  const executableName = process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg'
+  const executableName = createPlatformAdapter().ffmpegExecutableName
   const bundledPath = join(process.resourcesPath, 'resources', 'ffmpeg', executableName)
   if (!existsSync(bundledPath)) {
     if (process.env['NODE_ENV'] !== 'production' && process.env['ELECTRON_RENDERER_URL']) {

@@ -8,11 +8,14 @@ import { appLogger } from './app-logger'
 import { loadMockRecognitionFixture } from './mock-recognition-source'
 import { parseRawModelFrame } from '../games/raw-model-output-parser'
 import { LuckyPartyRecognitionStateMachine } from '../games/recognition-state-machine'
+import type { GameRecognitionResult } from '../games/types'
 import type {
+  DiceEvent,
   RecognitionCaptureTarget,
   RecognitionFramePayload,
   RecognitionStatus
 } from '../shared/types'
+import type { DiceEventUploadService } from './dice-event-upload-service'
 
 export class RecognitionWorker {
   private timer?: NodeJS.Timeout
@@ -20,8 +23,28 @@ export class RecognitionWorker {
   private frameCount = 0
   private lastAcceptedAt = 0
   private captureTarget?: RecognitionCaptureTarget
+  private pendingUploadEvents: DiceEvent[] = []
 
-  constructor(private readonly store: LocalStore) {}
+  constructor(
+    private readonly store: LocalStore,
+    private readonly uploadService?: DiceEventUploadService
+  ) {}
+
+  private persistRecognitionResult(gameKey: string, result: GameRecognitionResult): void {
+    const events = this.store.appendRecognitionEvent(gameKey, result)
+    this.pendingUploadEvents.push(...events)
+  }
+
+  private persistMockEvent(gameKey: string): void {
+    const events = this.store.appendMockRecognitionEvent(gameKey)
+    this.pendingUploadEvents.push(...events)
+  }
+
+  private uploadPendingEvents(): void {
+    const events = this.pendingUploadEvents
+    this.pendingUploadEvents = []
+    if (this.uploadService && events.length > 0) void this.uploadService.upload(events)
+  }
 
   startMock(gameKey: string): RecognitionStatus {
     this.stop()
@@ -32,36 +55,42 @@ export class RecognitionWorker {
     this.store.beginRecognitionSession(gameKey)
 
     const submitNextFrame = (): void => {
-      const frame = fixture.frames[frameIndex]
-      if (!frame || this.activeGameKey !== gameKey) {
-        return
-      }
-
-      if (frame.predictions.length === 0) {
-        stateMachine.processNoLabelFrame()
-        if (stateMachine.getState().gameEnded) {
-          const finalResult = stateMachine.flush()
-          if (finalResult) {
-            this.store.appendRecognitionEvent(gameKey, finalResult)
-          }
-          this.store.completeActiveSession(gameKey)
-          stateMachine = new LuckyPartyRecognitionStateMachine()
-          appLogger.info('recognition', '检测到一局结束，已刷新骰子统计', { gameKey })
+      try {
+        const frame = fixture.frames[frameIndex]
+        if (!frame || this.activeGameKey !== gameKey) {
+          return
         }
-      }
-      const result = parseRawModelFrame(frame, new Date().toISOString())
-      const completed = result ? stateMachine.process(result) : undefined
-      if (completed) {
-        this.store.appendRecognitionEvent(gameKey, completed)
-      }
-      appLogger.info('recognition', `已处理模拟模型输出帧 ${frame.frameId}`, frame.predictions)
 
-      frameIndex = (frameIndex + 1) % fixture.frames.length
-      if (frameIndex === 0) {
-        appLogger.info('recognition', '模拟模型输出已播放完毕，重新从第一帧开始', {
-          gameKey,
-          frameCount: fixture.frames.length
-        })
+        if (frame.predictions.length === 0) {
+          stateMachine.processNoLabelFrame()
+          if (stateMachine.getState().gameEnded) {
+            const finalResult = stateMachine.flush()
+            if (finalResult) {
+              this.persistRecognitionResult(gameKey, finalResult)
+            }
+            this.store.completeActiveSession(gameKey)
+            this.uploadPendingEvents()
+            stateMachine = new LuckyPartyRecognitionStateMachine()
+            appLogger.info('recognition', '检测到一局结束，已刷新骰子统计', { gameKey })
+          }
+        }
+        const result = parseRawModelFrame(frame, new Date().toISOString())
+        const completed = result ? stateMachine.process(result) : undefined
+        if (completed) {
+          this.persistRecognitionResult(gameKey, completed)
+        }
+        appLogger.info('recognition', `已处理模拟模型输出帧 ${frame.frameId}`, frame.predictions)
+
+        frameIndex = (frameIndex + 1) % fixture.frames.length
+        if (frameIndex === 0) {
+          appLogger.info('recognition', '模拟模型输出已播放完毕，重新从第一帧开始', {
+            gameKey,
+            frameCount: fixture.frames.length
+          })
+        }
+      } catch (error) {
+        appLogger.error('recognition', '识别过程发生异常，正在结束监听', error)
+        this.stop()
       }
     }
 
@@ -88,37 +117,43 @@ export class RecognitionWorker {
       return this.getStatus()
     }
 
-    this.frameCount += 1
+    try {
+      this.frameCount += 1
 
-    const screenshotPath = this.saveScreenshot(payload)
-    appLogger.info('capture', '识别截图已保存', {
-      gameKey: payload.gameKey,
-      capturedAt: payload.capturedAt,
-      width: payload.width,
-      height: payload.height,
-      screenshotPath,
-      frameCount: this.frameCount
-    })
+      const screenshotPath = this.saveScreenshot(payload)
+      appLogger.info('capture', '识别截图已保存', {
+        gameKey: payload.gameKey,
+        capturedAt: payload.capturedAt,
+        width: payload.width,
+        height: payload.height,
+        screenshotPath,
+        frameCount: this.frameCount
+      })
 
-    const now = Date.now()
-    const intervalElapsed =
-      now - this.lastAcceptedAt >= this.captureTarget.profile.captureIntervalMs
+      const now = Date.now()
+      const intervalElapsed =
+        now - this.lastAcceptedAt >= this.captureTarget.profile.captureIntervalMs
 
-    if (intervalElapsed) {
-      const result = payload.gameKey === 'lucky-party' ? recognizeLuckyPartyFrame() : undefined
-      if (result) {
-        this.store.appendRecognitionEvent(payload.gameKey, result)
-      } else {
-        this.store.appendMockRecognitionEvent(payload.gameKey)
-        appLogger.info('recognition', '本地模型尚未接入，已写入模拟识别结果', {
-          gameKey: payload.gameKey,
-          screenshotPath
-        })
+      if (intervalElapsed) {
+        const result = payload.gameKey === 'lucky-party' ? recognizeLuckyPartyFrame() : undefined
+        if (result) {
+          this.persistRecognitionResult(payload.gameKey, result)
+        } else {
+          this.persistMockEvent(payload.gameKey)
+          appLogger.info('recognition', '本地模型尚未接入，已写入模拟识别结果', {
+            gameKey: payload.gameKey,
+            screenshotPath
+          })
+        }
+        this.lastAcceptedAt = now
       }
-      this.lastAcceptedAt = now
-    }
 
-    return this.getStatus()
+      return this.getStatus()
+    } catch (error) {
+      appLogger.error('recognition', '识别过程发生异常，正在结束监听', error)
+      this.stop()
+      throw error
+    }
   }
 
   stop(): RecognitionStatus {
@@ -135,6 +170,7 @@ export class RecognitionWorker {
     if (stoppedGameKey) {
       this.store.completeActiveSession(stoppedGameKey)
     }
+    this.uploadPendingEvents()
     return this.getStatus()
   }
 
