@@ -1,4 +1,4 @@
-import { Button, Text } from '@fluentui/react-components'
+import { Badge, Button, Text } from '@fluentui/react-components'
 import { Delete24Regular, Save24Regular } from '@fluentui/react-icons'
 import { useTranslation } from 'react-i18next'
 import type { AppLogEntry } from '../../../../shared/types'
@@ -45,9 +45,9 @@ function RuntimeLogsPage({
           {logs.map((log) => (
             <div className="runtimeLogRow" key={log.id}>
               <div className="runtimeLogMeta">
-                <Text className={`runtimeLogLevel runtimeLogLevel${capitalize(log.level)}`}>
+                <Badge appearance="tint" color={getLogLevelColor(log.level)}>
                   {log.level.toUpperCase()}
-                </Text>
+                </Badge>
                 <Text className="mutedText">{new Date(log.createdAt).toLocaleTimeString()}</Text>
                 <Text className="monoText">{log.scope}</Text>
               </div>
@@ -61,8 +61,15 @@ function RuntimeLogsPage({
   )
 }
 
-function capitalize(value: string): string {
-  return `${value.charAt(0).toUpperCase()}${value.slice(1)}`
+function getLogLevelColor(level: AppLogEntry['level']): 'informative' | 'warning' | 'danger' {
+  switch (level) {
+    case 'warn':
+      return 'warning'
+    case 'error':
+      return 'danger'
+    default:
+      return 'informative'
+  }
 }
 
 export default RuntimeLogsPage

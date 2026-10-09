@@ -1,102 +1,276 @@
 .statsPanel {
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  align-content: start;
   box-sizing: border-box;
   min-width: 0;
   min-height: 100%;
-  padding: 18px 22px;
+  padding: 18px 22px 28px;
   background: var(--surface);
 }
 
-.gamePanelTabs {
+.gamePanelTabs,
+.gameSummary,
+.statsPanel .panelActions,
+.statsPanel .toolbar,
+.statsFilters,
+.matrixHeading,
+.matrixFooter,
+.paginationControls,
+.pageSizeControl,
+.countLegend {
   display: flex;
   align-items: center;
+}
+
+.gamePanelTabs,
+.gameSummary,
+.statsFilters,
+.matrixHeading,
+.matrixFooter {
   justify-content: space-between;
+}
+
+.gamePanelTabs {
   min-height: 40px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--border);
 }
 
 .statsPanel .panelActions,
-.statsPanel .toolbar {
+.statsPanel .toolbar,
+.paginationControls,
+.countLegend {
+  gap: 8px;
+}
+
+.gameSummary {
+  gap: 16px;
+  padding: 22px 0 18px;
+}
+
+.statsPanel > .fui-TabList {
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.statsFilters {
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.statsFilter {
+  display: grid;
+  gap: 5px;
+  min-width: 180px;
+}
+
+.statsScopeSummary {
+  margin-left: auto;
+  color: var(--muted);
+  text-align: right;
+}
+
+.statsPanel .countLegend {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.statsPanel .countLegend .fui-Text {
+  white-space: nowrap;
+}
+
+.diceMatrixSection {
+  min-width: 0;
+}
+
+.matrixHeading {
+  gap: 16px;
+  min-height: 34px;
+  margin-top: 4px;
+}
+
+.diceMatrixViewport {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.diceMatrixStage {
+  position: relative;
+  min-width: 0;
+  background: var(--surface);
+}
+
+.diceMatrixStageCompact {
+  min-width: 0;
+}
+
+.diceMatrix {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.diceMatrix .fui-TableHeaderCell,
+.diceMatrix .fui-TableCell {
+  height: 48px;
+  padding: 6px 8px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.diceMatrix .fui-TableHeaderCell {
+  height: 42px;
+  color: var(--muted);
+  background: var(--surface-soft);
+}
+
+.diceMatrix .fui-TableHeaderCell:first-child,
+.diceMatrix .roleCell {
+  padding-left: 14px;
+  color: var(--text);
+  font-weight: 600;
+  text-align: left;
+  background: var(--surface-soft);
+}
+
+.roleIdentity {
   display: flex;
+  min-width: 0;
   gap: 8px;
   align-items: center;
 }
 
-.gameSummary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 24px 0 18px;
-  border-bottom: 1px solid var(--border);
+.roleIdentity .fui-Avatar {
+  flex: 0 0 auto;
 }
 
-.statusText {
-  color: var(--muted);
-}
-
-.statusTextRunning {
-  color: #107c10;
-}
-
-.errorMessage {
-  padding: 8px 10px;
-  border-left: 3px solid #c50f1f;
-  background: #fdf3f4;
-  color: #c50f1f;
-}
-
-.readonlyMetaGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  padding: 0 0 26px;
-  border-bottom: 1px solid var(--border);
-}
-
-.metaItem {
-  display: grid;
-  gap: 4px;
+.roleName {
   min-width: 0;
-  padding: 4px 14px;
-  border-right: 1px solid var(--border);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.metaItem:first-child {
-  padding-left: 0;
-}
-
-.metaItem:last-child {
+.diceMatrix .fui-TableHeaderCell:last-child,
+.diceMatrix .fui-TableCell:last-child {
   border-right: 0;
 }
 
-.sectionHeader {
-  padding: 14px 0 10px;
-}
-
-.eventsGrid {
-  border-top: 1px solid var(--border);
-}
-
-.emptyState {
-  display: grid;
-  gap: 10px;
-  align-content: start;
-  min-height: 160px;
-  padding: 2px 0;
-}
-
-.gameSettingsTab {
+.matrixSortButton {
+  width: 100%;
   min-width: 0;
-  min-height: 0;
-  padding-top: 26px;
-  overflow: auto;
 }
 
-@media (max-width: 980px) {
-  .statsPanel {
-    min-height: 360px;
+.matrixSortIcon {
+  display: inline-grid;
+  width: 16px;
+  place-items: center;
+  color: var(--accent);
+}
+
+.countCell {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.countCell[data-level='1'],
+.countLegendSwatch[data-level='1'] {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+}
+
+.countCell[data-level='2'] {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
+}
+
+.countCell[data-level='3'],
+.countLegendSwatch[data-level='3'] {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 34%, var(--surface));
+}
+
+.countCell[data-level='4'],
+.countLegendSwatch[data-level='4'] {
+  color: white;
+  font-weight: 600;
+  background: var(--accent);
+}
+
+.sortedColumnBand {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--accent) 62%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--accent) 62%, transparent);
+}
+
+.matrixEmptyState {
+  position: absolute;
+  inset: 42px 0 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.matrixFooter {
+  gap: 16px;
+  padding-top: 10px;
+}
+
+.pageSizeControl {
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.pageSizeControl .fui-Select {
+  min-width: 78px;
+}
+
+.countLegend {
+  color: var(--muted);
+}
+
+.countLegendSwatch {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 10px;
+}
+
+.statsPlaceholder {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  color: var(--muted);
+  background: var(--surface-soft);
+}
+
+@media (max-width: 760px) {
+  .statsFilters,
+  .matrixFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .statsFilter,
+  .statsFilter .fui-Select {
+    width: 100%;
+  }
+
+  .statsScopeSummary {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .countLegend {
+    justify-content: flex-end;
   }
 }

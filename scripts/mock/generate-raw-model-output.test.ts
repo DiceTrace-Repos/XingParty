@@ -16,6 +16,11 @@ test('generates eight rounds of valid raw predictions', () => {
 
   validateRawModelOutput(output)
   assert.equal(output.schemaVersion, 2)
+  assert.equal(output.frames.filter((frame) => frame.predictions.length === 0).length, 10)
+  assert.deepEqual(
+    output.frames.slice(-10).map((frame) => frame.frameId),
+    Array.from({ length: 10 }, (_, index) => `game-end-${String(index + 1).padStart(2, '0')}`)
+  )
   assert.equal(
     output.frames.filter((frame) =>
       frame.predictions.some((prediction) => prediction.label === 'map_character')

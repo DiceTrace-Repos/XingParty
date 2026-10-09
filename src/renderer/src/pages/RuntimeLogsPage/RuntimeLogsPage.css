@@ -59,23 +59,6 @@
   align-items: center;
 }
 
-.runtimeLogLevel {
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.runtimeLogLevelInfo {
-  color: #115ea3;
-}
-
-.runtimeLogLevelWarn {
-  color: #8a5800;
-}
-
-.runtimeLogLevelError {
-  color: #c50f1f;
-}
-
 .runtimeLogDetail {
   max-height: 220px;
   margin: 0;

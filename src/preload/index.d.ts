@@ -2,6 +2,7 @@ import { ElectronAPI } from '@electron-toolkit/preload'
 import type {
   AppLogEntry,
   BootstrapState,
+  ClientSettingsUpdate,
   RecognitionCaptureTarget,
   RecognitionFramePayload,
   RecognitionTargetHealth
@@ -30,10 +31,13 @@ export interface ExportLogsResult {
 
 export interface XingPartyAPI {
   getBootstrapState: () => Promise<BootstrapState>
+  updateClientSettings: (update: ClientSettingsUpdate) => Promise<BootstrapState>
+  selectGamePath: (title: string) => Promise<string | undefined>
   getAppLogs: () => Promise<AppLogEntry[]>
   clearAppLogs: () => Promise<AppLogEntry[]>
   exportAppLogs: () => Promise<ExportLogsResult>
   refreshGameCatalog: () => Promise<BootstrapState>
+  refreshGameRoles: () => Promise<BootstrapState>
   setActiveGame: (key: string) => Promise<BootstrapState>
   startRecognition: (key: string) => Promise<RecognitionStartSession>
   prepareVideoRecognition: (key: string) => Promise<RecognitionCaptureSession>

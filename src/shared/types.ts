@@ -1,13 +1,10 @@
-import type { RawModelFrame } from './raw-model-output'
-
 export type Locale = 'zh-CN' | 'en-US'
 export type PlatformName = NodeJS.Platform
 
 export type SceneType = 'map' | 'battle' | 'unknown'
-export type PhaseType = 'move' | 'attack' | 'defense' | 'unknown'
-export type DiceSide = 'self' | 'enemy'
 export type DiceStepSource = 'base' | 'card_bonus' | 'manual' | 'unknown'
 export type DetectionSource = 'vision' | 'manual' | 'unknown'
+export type DiceEventSourceType = 'raw' | 'card' | 'map'
 
 export interface GameCatalogItem {
   id: string
@@ -18,12 +15,31 @@ export interface StoredGame extends GameCatalogItem {
   cachedAt: string
 }
 
+export interface GameRoleResourceItem {
+  game_id: string | null
+  avatar: string | null
+  name: string
+}
+
+export interface GameRoleResourceSnapshot {
+  version: string
+  contents: GameRoleResourceItem[]
+  updatedAt: string
+}
+
 export interface ClientState {
   clientId: string
   locale: Locale
   activeGameKey?: string
+  gamePath: string
+  autoShareData: boolean
   createdAt: string
   updatedAt: string
+}
+
+export interface ClientSettingsUpdate {
+  gamePath?: string
+  autoShareData?: boolean
 }
 
 export interface PlaySession {
@@ -59,39 +75,58 @@ export interface DiceEvent {
 }
 
 export interface FromSchema {
+  type: DiceEventSourceType
   userDevice: string
   sessionId: string
   roundId: string
   gameRole: string
   cardInfo?: {
+    type: 'attack' | 'defence'
     cost: number
   }
   frameInfo: string
-}
-
-export interface DiceValueStep {
-  id: string
-  eventId: string
-  sequenceIndex: number
-  sourceType: DiceStepSource
-  baseValue?: number
-  previousValue?: number
-  deltaValue?: number
-  finalValue: number
-  cardIndex?: number
-  confidence: number
+  intermediateData: string
 }
 
 export interface RecentDiceEvent extends DiceEvent {
-  finalValue: number
-  stepCount: number
+  id: string
+  gameKey: string
+}
+
+export interface DiceStatisticsSession {
+  id: string
+  startedAt: string
+  endedAt?: string
+}
+
+export interface DiceStatisticsRound {
+  id: string
+  sessionId: string
+  roundIndex: number
+}
+
+export interface DiceStatisticsEntry {
+  sessionId: string
+  roundId: string
+  gameRole: string
+  type: DiceEventSourceType
+  value: number
+  count: number
+}
+
+export interface DiceStatistics {
+  sessions: DiceStatisticsSession[]
+  rounds: DiceStatisticsRound[]
+  entries: DiceStatisticsEntry[]
 }
 
 export interface BootstrapState {
   client: ClientState
   games: StoredGame[]
   activeGame?: StoredGame
+  gameRoleResource?: GameRoleResourceSnapshot
   recentEvents: RecentDiceEvent[]
+  diceStatistics?: DiceStatistics
   latestRecognition?: RecognitionRecord
   recognitionRunning: boolean
 }
@@ -158,37 +193,20 @@ export interface RecognitionStatus {
   activeGameKey?: string
 }
 
-export interface RecognitionConfidence {
-  roundInfo: number
-  diceValues: number
-  characterCode: number
-  players: [number, number]
-}
-
 export interface LuckyPartyPlayerInfo {
   headCount: number | null
   characterCode: string | null
-  characterType: 'role' | 'monster' | 'unknown'
-  name: string[] | null
   cardDiceValues: Array<number | null>
   cardPointValues: Array<number | null>
-  confidence: {
-    headCount: number
-    characterCode: number
-    name: number
-    cardDiceValues: number
-    cardPointValues: number
-  }
 }
 
 export interface LuckyPartyRecognitionResult {
-  schemaVersion: 1
+  schemaVersion: 2
   capturedAt: string
   roundInfo: Array<number | null>
   diceValues: Array<number | null>
   characterCode: string | null
   players: [LuckyPartyPlayerInfo, LuckyPartyPlayerInfo]
-  confidence: RecognitionConfidence
 }
 
 export interface RecognitionRecord {
@@ -197,12 +215,9 @@ export interface RecognitionRecord {
   gameKey: string
   capturedAt: string
   scene: SceneType
-  phase: PhaseType
-  side?: DiceSide
-  confidence: number
   value?: number
   structured: LuckyPartyRecognitionResult
-  rawFrame?: RawModelFrame
+  originData: string
 }
 
 export interface RecognitionTargetHealth {

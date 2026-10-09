@@ -40,17 +40,15 @@
   display: grid;
   width: 56px;
   height: 52px;
+  min-width: 56px;
+  padding: 0;
   flex: 0 0 auto;
   place-items: center;
-  cursor: pointer;
-  background: transparent;
   border-radius: 6px;
 }
 
-.railGameIcon:hover,
-.railGameIcon:focus-visible {
-  background: #f0f0f0;
-  outline: none;
+.railGameIcon[aria-current='page'] {
+  background: var(--accent-soft);
 }
 
 .railTab {

@@ -1,6 +1,6 @@
 import type { GameCatalogItem } from '../shared/types'
-import { listGameAdapters } from '../games/registry'
+import { luckyPartyGame } from '../games/lucky-party'
 
 export function fetchMockGameCatalog(): GameCatalogItem[] {
-  return listGameAdapters().map(({ id, key }) => ({ id, key }))
+  return [{ id: luckyPartyGame.id, key: luckyPartyGame.key }]
 }

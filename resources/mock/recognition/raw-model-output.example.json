@@ -4810,6 +4810,76 @@
           }
         }
       ]
+    },
+    {
+      "frameId": "game-end-01",
+      "frameNumber": 52,
+      "capturedAt": "2026-10-06T00:02:36Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-02",
+      "frameNumber": 53,
+      "capturedAt": "2026-10-06T00:02:39Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-03",
+      "frameNumber": 54,
+      "capturedAt": "2026-10-06T00:02:42Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-04",
+      "frameNumber": 55,
+      "capturedAt": "2026-10-06T00:02:45Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-05",
+      "frameNumber": 56,
+      "capturedAt": "2026-10-06T00:02:48Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-06",
+      "frameNumber": 57,
+      "capturedAt": "2026-10-06T00:02:51Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-07",
+      "frameNumber": 58,
+      "capturedAt": "2026-10-06T00:02:54Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-08",
+      "frameNumber": 59,
+      "capturedAt": "2026-10-06T00:02:57Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-09",
+      "frameNumber": 60,
+      "capturedAt": "2026-10-06T00:03:00Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
+    },
+    {
+      "frameId": "game-end-10",
+      "frameNumber": 61,
+      "capturedAt": "2026-10-06T00:03:03Z",
+      "image": { "width": 1920, "height": 1080 },
+      "predictions": []
     }
   ]
 }

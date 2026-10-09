@@ -9,7 +9,8 @@ export default defineConfig(({ mode }) => {
   return {
     main: {
       define: {
-        'process.env.MOCK_DATA': JSON.stringify(env.MOCK_DATA ?? '')
+        'process.env.MOCK_DATA': JSON.stringify(env.MOCK_DATA ?? ''),
+        'process.env.XINGPARTY_API_BASE_URL': JSON.stringify(env.XINGPARTY_API_BASE_URL ?? '')
       }
     },
     preload: {},

@@ -8,10 +8,12 @@ import { LocalStore } from './local-store'
 import { RecognitionWorker } from './recognition-worker'
 import { appLogger } from './app-logger'
 import { createWindowMatcher } from './window-matcher'
-import { getGameAdapter } from '../games/registry'
+import { luckyPartyProfile } from '../games/lucky-party'
 import { VideoFrameExtractor } from './video-frame-extractor'
+import { GameRoleResourceService } from './game-role-resource-service'
 import type {
   BootstrapState,
+  ClientSettingsUpdate,
   RecognitionCaptureTarget,
   RecognitionFramePayload,
   RecognitionTargetHealth
@@ -19,6 +21,7 @@ import type {
 
 let localStore: LocalStore
 let recognitionWorker: RecognitionWorker
+let gameRoleResourceService: GameRoleResourceService
 const videoFrameExtractor = new VideoFrameExtractor()
 
 function createWindow(): void {
@@ -58,8 +61,10 @@ function createWindow(): void {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  localStore = new LocalStore(new EncryptedStorage())
+  localStore = new LocalStore(new EncryptedStorage(), getDefaultGamePath())
   recognitionWorker = new RecognitionWorker(localStore)
+  gameRoleResourceService = new GameRoleResourceService(localStore)
+  gameRoleResourceService.start()
   appLogger.info('app', '应用初始化完成', {
     platform: process.platform,
     resourcesPath: process.resourcesPath,
@@ -84,6 +89,23 @@ app.whenReady().then(() => {
 
   ipcMain.handle('app:get-bootstrap-state', () => {
     return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+  })
+
+  ipcMain.handle('app:update-client-settings', (_, update: ClientSettingsUpdate) => {
+    localStore.updateClientSettings({
+      gamePath: typeof update.gamePath === 'string' ? update.gamePath : undefined,
+      autoShareData: typeof update.autoShareData === 'boolean' ? update.autoShareData : undefined
+    })
+    return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+  })
+
+  ipcMain.handle('app:select-game-path', async (_, title: string) => {
+    const result = await dialog.showOpenDialog({
+      title,
+      properties: ['openFile']
+    })
+
+    return result.canceled ? undefined : result.filePaths[0]
   })
 
   ipcMain.handle('app:get-logs', () => {
@@ -118,6 +140,11 @@ app.whenReady().then(() => {
   ipcMain.handle('games:refresh-catalog', () => {
     appLogger.info('catalog', '刷新游戏列表')
     localStore.refreshGames()
+    return localStore.getBootstrapState(recognitionWorker.getStatus().running)
+  })
+
+  ipcMain.handle('resources:refresh-game-roles', async () => {
+    await gameRoleResourceService.refresh()
     return localStore.getBootstrapState(recognitionWorker.getStatus().running)
   })
 
@@ -219,19 +246,23 @@ app.on('window-all-closed', () => {
   }
 })
 
+app.on('before-quit', () => {
+  gameRoleResourceService?.stop()
+})
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
 async function prepareCaptureTarget(gameKey: string): Promise<RecognitionCaptureTarget> {
-  const adapter = getGameAdapter(gameKey)
-  const profile = adapter?.profile
+  const profile = gameKey === 'lucky-party' ? luckyPartyProfile : undefined
 
   if (!profile) {
     appLogger.error('recognition', '未找到识别 profile', { gameKey })
     throw new Error(`未配置游戏识别参数：${gameKey}`)
   }
 
-  const exePath = profile.exePaths[process.platform]
+  const configuredGamePath = localStore.getBootstrapState(false).client.gamePath
+  const exePath = configuredGamePath || getDefaultGamePath()
 
   if (!exePath) {
     appLogger.error('recognition', '当前平台未配置 exePath', {
@@ -336,7 +367,7 @@ function isMockDataEnabled(): boolean {
 }
 
 function prepareVideoCaptureTarget(gameKey: string): RecognitionCaptureTarget {
-  const profile = getGameAdapter(gameKey)?.profile
+  const profile = gameKey === 'lucky-party' ? luckyPartyProfile : undefined
 
   if (!profile) {
     throw new Error(`未配置游戏识别参数：${gameKey}`)
@@ -355,4 +386,14 @@ function prepareVideoCaptureTarget(gameKey: string): RecognitionCaptureTarget {
     },
     profile
   }
+}
+
+function getDefaultGamePath(): string {
+  return (
+    luckyPartyProfile.exePaths[process.platform] ??
+    Object.values(luckyPartyProfile.exePaths).find((configuredPath): configuredPath is string =>
+      Boolean(configuredPath)
+    ) ??
+    ''
+  )
 }

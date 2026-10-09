@@ -3,10 +3,11 @@ import { randomUUID } from 'crypto'
 import { mkdirSync, readdirSync, unlinkSync, writeFileSync } from 'fs'
 import { join } from 'path'
 import type { LocalStore } from './local-store'
-import { getGameAdapter } from '../games/registry'
+import { recognizeLuckyPartyFrame } from '../games/lucky-party'
 import { appLogger } from './app-logger'
 import { loadMockRecognitionFixture } from './mock-recognition-source'
-import { parseRawModelFrame } from '../games/lucky-party/raw-model-output-parser'
+import { parseRawModelFrame } from '../games/raw-model-output-parser'
+import { LuckyPartyRecognitionStateMachine } from '../games/recognition-state-machine'
 import type {
   RecognitionCaptureTarget,
   RecognitionFramePayload,
@@ -27,6 +28,8 @@ export class RecognitionWorker {
     const fixture = loadMockRecognitionFixture()
     this.activeGameKey = gameKey
     let frameIndex = 0
+    let stateMachine = new LuckyPartyRecognitionStateMachine()
+    this.store.beginRecognitionSession(gameKey)
 
     const submitNextFrame = (): void => {
       const frame = fixture.frames[frameIndex]
@@ -34,8 +37,23 @@ export class RecognitionWorker {
         return
       }
 
+      if (frame.predictions.length === 0) {
+        stateMachine.processNoLabelFrame()
+        if (stateMachine.getState().gameEnded) {
+          const finalResult = stateMachine.flush()
+          if (finalResult) {
+            this.store.appendRecognitionEvent(gameKey, finalResult)
+          }
+          this.store.completeActiveSession(gameKey)
+          stateMachine = new LuckyPartyRecognitionStateMachine()
+          appLogger.info('recognition', '检测到一局结束，已刷新骰子统计', { gameKey })
+        }
+      }
       const result = parseRawModelFrame(frame, new Date().toISOString())
-      this.store.appendRecognitionEvent(gameKey, result, frame)
+      const completed = result ? stateMachine.process(result) : undefined
+      if (completed) {
+        this.store.appendRecognitionEvent(gameKey, completed)
+      }
       appLogger.info('recognition', `已处理模拟模型输出帧 ${frame.frameId}`, frame.predictions)
 
       frameIndex = (frameIndex + 1) % fixture.frames.length
@@ -60,6 +78,7 @@ export class RecognitionWorker {
     this.captureTarget = target
     this.frameCount = 0
     this.lastAcceptedAt = 0
+    this.store.beginRecognitionSession(target.gameKey)
 
     return this.getStatus()
   }
@@ -86,7 +105,7 @@ export class RecognitionWorker {
       now - this.lastAcceptedAt >= this.captureTarget.profile.captureIntervalMs
 
     if (intervalElapsed) {
-      const result = getGameAdapter(payload.gameKey)?.recognize(payload)
+      const result = payload.gameKey === 'lucky-party' ? recognizeLuckyPartyFrame() : undefined
       if (result) {
         this.store.appendRecognitionEvent(payload.gameKey, result)
       } else {
@@ -103,6 +122,7 @@ export class RecognitionWorker {
   }
 
   stop(): RecognitionStatus {
+    const stoppedGameKey = this.activeGameKey
     if (this.timer) {
       clearInterval(this.timer)
       this.timer = undefined
@@ -112,6 +132,9 @@ export class RecognitionWorker {
     this.captureTarget = undefined
     this.frameCount = 0
     this.lastAcceptedAt = 0
+    if (stoppedGameKey) {
+      this.store.completeActiveSession(stoppedGameKey)
+    }
     return this.getStatus()
   }
 

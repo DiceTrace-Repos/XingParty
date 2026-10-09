@@ -1,14 +1,18 @@
 import { contextBridge, ipcRenderer, webUtils } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-import type { RecognitionFramePayload } from '../shared/types'
+import type { ClientSettingsUpdate, RecognitionFramePayload } from '../shared/types'
 
 // Custom APIs for renderer
 const api = {
   getBootstrapState: () => ipcRenderer.invoke('app:get-bootstrap-state'),
+  updateClientSettings: (update: ClientSettingsUpdate) =>
+    ipcRenderer.invoke('app:update-client-settings', update),
+  selectGamePath: (title: string) => ipcRenderer.invoke('app:select-game-path', title),
   getAppLogs: () => ipcRenderer.invoke('app:get-logs'),
   clearAppLogs: () => ipcRenderer.invoke('app:clear-logs'),
   exportAppLogs: () => ipcRenderer.invoke('app:export-logs'),
   refreshGameCatalog: () => ipcRenderer.invoke('games:refresh-catalog'),
+  refreshGameRoles: () => ipcRenderer.invoke('resources:refresh-game-roles'),
   setActiveGame: (key: string) => ipcRenderer.invoke('games:set-active', key),
   startRecognition: (key: string) => ipcRenderer.invoke('recognition:start', key),
   prepareVideoRecognition: (key: string) => ipcRenderer.invoke('recognition:prepare-video', key),

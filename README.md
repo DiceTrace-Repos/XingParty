@@ -1,12 +1,12 @@
 # XingParty
 
-独立的星派对游戏识别适配器。通用启动器 `DiceTrace-Client` 不再承载游戏识别逻辑；每个游戏在 `src/games/<game>/adapter.ts` 中实现自己的窗口参数与识别算法。
+独立的星派对游戏识别客户端。通用启动器 `DiceTrace-Client` 不再承载游戏识别逻辑；本项目只处理 Lucky Party。
 
 ## 架构
 
-- `src/games/types.ts`：游戏适配器契约。
-- `src/games/registry.ts`：适配器注册表，目录中的每个游戏都必须显式注册。
-- `src/games/lucky-party/adapter.ts`：星派对适配器（当前保留窗口捕获配置，识别算法可独立迭代）。
+- `src/games/lucky-party.ts`：Lucky Party 窗口配置和识别入口。
+- `src/games/raw-model-output-parser.ts`：Lucky Party 原始模型输出转换。
+- `src/games/recognition-state-machine.ts`：Lucky Party 单局、回合和行动状态机。
 - `src/main`：会话、窗口捕获、日志和本地数据等 XingParty 运行时。
 
 ## Recommended IDE Setup
@@ -47,6 +47,14 @@ MOCK_DATA=true
 ```
 
 修改后重新启动应用。启用后点击“开始识别”会直接播放模拟数据，不会连接游戏窗口或执行截图逻辑。可复制 `.env.example` 作为初始配置；`.env` 属于本地配置，不会提交到 Git。
+
+后端 API 默认为本机 DiceLogBackend，也可以在 `.env` 中配置统一的 API 基址。基址只需填写到 API 版本，具体接口路径由客户端拼接：
+
+```dotenv
+XINGPARTY_API_BASE_URL=http://localhost:8000/api/v1
+```
+
+修改接口地址后需要重新启动客户端。资源请求由 Electron 主进程发送，因此不会出现在渲染页面 DevTools 的 Network 面板中；请求过程和失败原因会记录在“运行日志”页面。
 
 ### Build
 

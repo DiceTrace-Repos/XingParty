@@ -1,4 +1,4 @@
-import { Image, Spinner, Tab, TabList, Tooltip } from '@fluentui/react-components'
+import { Button, Image, Spinner, Tab, TabList, Tooltip } from '@fluentui/react-components'
 import { DocumentBulletList24Regular, Settings24Regular } from '@fluentui/react-icons'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -273,18 +273,12 @@ function GameShell(): React.JSX.Element {
       <aside className="gameRail" aria-label={t('nav.gameCatalog')}>
         {activeGame ? (
           <Tooltip content={gameName} relationship="label">
-            <div
+            <Button
+              appearance="transparent"
               className="railGameIcon"
-              role="button"
-              tabIndex={0}
               aria-label={gameName}
+              aria-current={activeView === activeGame.key ? 'page' : undefined}
               onClick={() => setActiveView(activeGame.key)}
-              onKeyDown={(event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault()
-                  setActiveView(activeGame.key)
-                }
-              }}
             >
               {GAME_LOGOS[activeGame.key] ? (
                 <Image
@@ -296,7 +290,7 @@ function GameShell(): React.JSX.Element {
               ) : (
                 <span className="gameTabFallback">?</span>
               )}
-            </div>
+            </Button>
           </Tooltip>
         ) : null}
         <TabList
@@ -325,7 +319,20 @@ function GameShell(): React.JSX.Element {
 
       <main className="mainArea">
         {activeView === SETTINGS_VIEW ? (
-          <SoftwareSettingsPage state={state} activeGame={activeGame} />
+          <SoftwareSettingsPage
+            state={state}
+            onRefreshGameRoles={async () => {
+              const nextState = await window.api.refreshGameRoles()
+              setState(nextState)
+              setLogs(await window.api.getAppLogs())
+              return nextState
+            }}
+            onSettingsChange={async (update) => {
+              const nextState = await window.api.updateClientSettings(update)
+              setState(nextState)
+              return nextState
+            }}
+          />
         ) : activeView === LOGS_VIEW ? (
           <RuntimeLogsPage logs={logs} onClearLogs={clearLogs} onExportLogs={exportLogs} />
         ) : (

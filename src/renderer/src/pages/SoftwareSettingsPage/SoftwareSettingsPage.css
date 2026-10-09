@@ -1,8 +1,9 @@
 .softwareSettingsPage {
+  position: relative;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   min-width: 0;
-  min-height: 0;
+  min-height: 100vh;
   padding: 22px 24px;
   overflow: hidden;
   background: var(--surface);
@@ -22,32 +23,104 @@
 }
 
 .softwareSettingsContent {
-  display: grid;
-  gap: 10px;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
   padding-top: 18px;
+  overflow: auto;
 }
 
-.readonlyMetaGrid {
+.settingsList {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  padding: 0 0 26px;
+}
+
+.settingsRow {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 0;
   border-bottom: 1px solid var(--border);
 }
 
-.metaItem {
+.settingsRow:last-child {
+  border-bottom: 0;
+}
+
+.settingsRowText {
   display: grid;
-  gap: 4px;
+  gap: 2px;
   min-width: 0;
-  padding: 4px 14px;
-  border-right: 1px solid var(--border);
 }
 
-.metaItem:first-child {
-  padding-left: 0;
+.settingsRowControl {
+  min-width: 0;
+  max-width: 720px;
 }
 
-.metaItem:last-child {
-  border-right: 0;
+.settingsRowControl > .fui-Input,
+.gamePathControl .fui-Input {
+  width: 100%;
+}
+
+.gamePathControl input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}
+
+.clientIdValue {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  color: var(--muted);
+}
+
+.gamePathControl {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) auto;
+  gap: 8px;
+}
+
+.resourceUpdateControl {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.resourceUpdateStatus {
+  display: grid;
+  gap: 2px;
+}
+
+.settingsFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.settingsSaveMessage {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: min(480px, calc(100% - 48px));
+  transform: translateX(-50%);
+}
+
+.settingsFooter .fui-Button {
+  min-width: 96px;
+}
+
+@media (max-width: 720px) {
+  .settingsRowControl {
+    width: 100%;
+  }
+
+  .resourceUpdateControl {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

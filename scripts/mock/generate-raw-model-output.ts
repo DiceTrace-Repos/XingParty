@@ -338,6 +338,18 @@ export function generateRawModelOutput(
     }
   }
 
+  for (let index = 1; index <= 10; index += 1) {
+    frames.push(
+      createFrame(
+        detectionId('game-end', String(index).padStart(2, '0')),
+        frames.length,
+        capturedAt,
+        []
+      )
+    )
+    capturedAt = new Date(capturedAt.getTime() + 3000)
+  }
+
   return {
     schemaVersion: 2,
     model: { name: 'lucky-party-detector', version: 'mock-1' },
@@ -436,6 +448,11 @@ export function validateRawModelOutput(output: RawModelOutputFixture): void {
     ) {
       throw new Error('Each round needs one or two battles for each role side')
     }
+  }
+
+  const emptyFrames = output.frames.slice(-10)
+  if (emptyFrames.length !== 10 || emptyFrames.some((frame) => frame.predictions.length !== 0)) {
+    throw new Error('Mock output must end with ten empty frames')
   }
 }
 
